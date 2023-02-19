@@ -2,6 +2,7 @@
 メモ用に比較的小規模なコマンドネタをまとめたものです。  
 一つのデータパックとして配布するには小さすぎる物やモジュール化が面倒な物などを、個人的なメモ代わりとして置いておくためのリポジトリです。コピペや改造しての利用は構いません。メモ程度なので説明不足な点や煩雑な書き方になっている部分もあるかもしれませんが悪しからず。  
 
+
 ## 目次
 1. [**家具/装飾**](#1)  
  1.11. [block_displayで作成したイス 1](#1.11)  
@@ -17,23 +18,41 @@
  2.31. [text_displayと視点探査を活用したディスプレイ](#2.31)
 3. [**システム**](#3)  
  3.11 [ルートテーブルを使ったブロック名取得](#3.11)  
- 3.12 [interactionエンティティを使った着席](#3.12)
+ 3.12 [interactionエンティティを使った着席システム](#3.12)
 4. [**演出アニメーション**](#4)  
  4.11 [block_displayを使った衝撃の演出](#4.11)
+ 
  
 <a id="1"></a>
 ## 1. 装飾品  
 <a id="1.11"></a>
 ### 1.11 block_displayで作成したイス 1  
-![chair01](https://user-images.githubusercontent.com/60039093/219946909-7a825021-1cf7-4ec2-81f6-73219a48ed0d.png)
+**■[説明/Description]**  
+block_displayで作成した、コロコロ付きの丸椅子。  
+
+**■[使い方/How to use]**  
+設置用ファンクション`chair01_put.mcfunction`をデータパック内の好きな位置に置き、好きな位置と角度から実行すればその位置と角度で召喚される。原点は下面の中央  
+▼設置用ファンクションの実行例  
+`execute positioned ~ ~ ~ rotated ~ 0 run function ****:****/chair01_put`  
+
+![chair01](https://user-images.githubusercontent.com/60039093/219947694-d13ef55d-5a56-4f8b-9991-5054d16d3470.png)  
+▲イス1の写真
 
 <a id="1.21"></a>
-### 1.21 block_displayで作成した窓枠 1
-![window01_before](https://user-images.githubusercontent.com/60039093/219946932-8bc28cc6-c290-4ce4-a147-22ff45542957.png)
-![window01_after](https://user-images.githubusercontent.com/60039093/219946933-126a089c-a160-436e-8a84-6f8254292e4d.png)
+### 1.21 block_displayで作成した窓枠 1  
+**■[説明/Description]**  
+block_displayで作成した、木でできた窓枠とその周辺。  
+
+**■[使い方/How to use]**  
+設置用ファンクション`window01_put.mcfunction`をデータパック内の好きな位置に置き、好きな位置と角度から実行すればその位置と角度で召喚される。原点は窓下面の中央にある。  
+▼設置用ファンクションの実行例  
+`execute positioned ~ ~1.5 ~3.5 rotated ~ 0 run function ****:****/window01_put`  
+
+![window01](https://user-images.githubusercontent.com/60039093/219947547-3c49a034-b5e1-4d20-b5e5-86f2f21c9ae9.png)
+▲窓枠1の写真 (左が設置前/右が設置後)
 
 <a id="2"></a>
-## 2. 検知/探査
+## 2. 検知/探査  
 <a id="2.11"></a>
 <a id="2.12"></a>
 <a id="2.21"></a>
@@ -43,9 +62,9 @@
 <a id="2.25"></a>
 
 <a id="3"></a>
-## 3. システム
+## 3. システム  
 <a id="3.1"></a>
 
 <a id="4"></a>
-## 4. 演出アニメーション
+## 4. 演出アニメーション  
 
