@@ -25,11 +25,13 @@
 ## 1. 装飾品  
 <a id="1.11"></a>
 ### 1.11 block_displayで作成したイス 1  
-　
+![chair01](https://user-images.githubusercontent.com/60039093/219946909-7a825021-1cf7-4ec2-81f6-73219a48ed0d.png)
 
 <a id="1.21"></a>
 ### 1.21 block_displayで作成した窓枠 1
- 
+![window01_before](https://user-images.githubusercontent.com/60039093/219946932-8bc28cc6-c290-4ce4-a147-22ff45542957.png)
+![window01_after](https://user-images.githubusercontent.com/60039093/219946933-126a089c-a160-436e-8a84-6f8254292e4d.png)
+
 <a id="2"></a>
 ## 2. 検知/探査
 <a id="2.11"></a>
@@ -46,3 +48,4 @@
 
 <a id="4"></a>
 ## 4. 演出アニメーション
+
