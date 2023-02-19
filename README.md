@@ -31,7 +31,7 @@
 block_displayで作成した、コロコロ付きの丸椅子。  
 
 **■[使い方/How to use]**  
-設置用ファンクション`chair01_put.mcfunction`をデータパック内の好きな位置に置き、好きな位置と角度から実行すればその位置と角度で召喚される。原点は下面の中央  
+設置用ファンクション`chair01_put.mcfunction`をデータパック内の好きな位置に置き、好きな位置と角度から実行すればその位置と角度で召喚される。原点は下面の中央。  
 ▼設置用ファンクションの実行例  
 `execute positioned ~ ~ ~ rotated ~ 0 run function ****:****/chair01_put`  
 
@@ -44,12 +44,12 @@ block_displayで作成した、コロコロ付きの丸椅子。
 block_displayで作成した、木でできた窓枠とその周辺。  
 
 **■[使い方/How to use]**  
-設置用ファンクション`window01_put.mcfunction`をデータパック内の好きな位置に置き、好きな位置と角度から実行すればその位置と角度で召喚される。原点は窓下面の中央にある。  
+設置用ファンクション`window01_put.mcfunction`をデータパック内の好きな位置に置き、好きな位置と角度から実行すればその位置と角度で召喚される。原点は窓下面の中央。  
 ▼設置用ファンクションの実行例  
 `execute positioned ~ ~1.5 ~3.5 rotated ~ 0 run function ****:****/window01_put`  
 
-![window01](https://user-images.githubusercontent.com/60039093/219947547-3c49a034-b5e1-4d20-b5e5-86f2f21c9ae9.png)
-▲窓枠1の写真 (左が設置前/右が設置後)
+![window01](https://user-images.githubusercontent.com/60039093/219947547-3c49a034-b5e1-4d20-b5e5-86f2f21c9ae9.png)  
+▲窓枠1の写真 (左が設置前/右が設置後)  
 
 <a id="2"></a>
 ## 2. 検知/探査  
