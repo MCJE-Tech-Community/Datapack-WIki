@@ -35,6 +35,7 @@ block_displayで作成した、コロコロ付きの丸椅子。
 
 **■[使い方/How to use]**  
 設置用ファンクション`chair01_put.mcfunction`をデータパック内の好きな位置に置き、好きな位置と角度から実行すればその位置と角度で召喚される。原点は下面の中央。  
+
 ▼設置用ファンクションの実行例  
 `execute positioned ~ ~ ~ rotated ~ 0 run function ****:****/chair01_put`  
 
@@ -50,6 +51,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 **■[使い方/How to use]**  
 設置用ファンクション`window01_put.mcfunction`をデータパック内の好きな位置に置き、好きな位置と角度から実行すればその位置と角度で召喚される。原点は窓下面の中央。  
+
 ▼設置用ファンクションの実行例  
 `execute positioned ~ ~1.5 ~3.5 rotated ~ 0 run function ****:****/window01_put`  
 
@@ -62,7 +64,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 <a id="2"></a>
 ## 2. 検知・探査/Detection&Exploretion  
 <a id="2.11"></a>
-### 2.11 殴った/クリックしたエンティティ探査(進捗+二分探査) / entity_association1  
+### 2.11 殴った/クリックしたエンティティ探査(進捗+二分探査) / entity_association01  
 **■[説明/Description]**  
 準備中  
 
@@ -71,7 +73,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ---
 <a id="2.12"></a>
-### 2.12 殴った/クリックしたエンティティ探査(進捗+execute on) / entity_association2  
+### 2.12 殴った/クリックしたエンティティ探査(進捗+execute on) / entity_association02  
 **■[説明/Description]**  
 準備中  
 
@@ -80,7 +82,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ---
 <a id="2.21"></a>
-### 2.21 角をすり抜けない視線先ブロック探査(execute増幅) / looked_block_exploration1  
+### 2.21 角をすり抜けない視線先ブロック探査(execute増幅) / looked_block_exploration01  
 **■[説明/Description]**  
 準備中  
 
@@ -89,7 +91,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ---
 <a id="2.22"></a>
-### 2.22 角をすり抜けない視線先ブロック探査(functionループ) / looked_block_exploration2  
+### 2.22 角をすり抜けない視線先ブロック探査(functionループ) / looked_block_exploration02  
 **■[説明/Description]**  
 準備中  
 
@@ -98,7 +100,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ---
 <a id="2.23"></a>
-### 2.23 ヒットボックス準拠の視線先エンティティ探査(execute増幅) / looked_entity_exploration1  
+### 2.23 ヒットボックス準拠の視線先エンティティ探査(execute増幅) / looked_entity_exploration01  
 **■[説明/Description]**  
 準備中  
 
@@ -107,7 +109,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ---
 <a id="2.24"></a>
-### 2.11 ヒットボックス準拠の視線先エンティティ探査(functionループ) / looked_entity_exploration2  
+### 2.24 ヒットボックス準拠の視線先エンティティ探査(functionループ) / looked_entity_exploration02  
 **■[説明/Description]**  
 準備中  
 
@@ -116,7 +118,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ---
 <a id="2.25"></a>
-### 2.11 殴った/クリックしたエンティティ探査(進捗+二分探査) / entity_ex1  
+### 2.25 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
 **■[説明/Description]**  
 準備中  
 
@@ -124,17 +126,30 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 
 ---
-<a id="2.25"></a>
-### 2.11 殴った/クリックしたエンティティ探査(進捗+二分探査) / entity_ex1  
+<a id="2.31"></a>
+### 2.31 text_displayと視点探査を活用したディスプレイ(billboard:fix) / display01  
 **■[説明/Description]**  
-準備中  
+text_displayで作った固定されたディスプレイと、それを利用したディスプレイシステムの一例。  
+とりあえず視点算出とホバーイベントの実装のみ。  
+クリックイベントや演出の強化は実装予定。
 
 **■[使い方/How to use]**  
+`031_display01/`内の3つのファンクションをデータパック内の好きな位置に置き、以下の手順で実行する。  
+1. 初期設定 : `init.mcfunction`を実行してスコア等を設定。  
+2. ディスプレイ設置 : `set.mcfunction`を好きな位置と向きで実行するとその位置と向きで設置される。  
+3. 常時実行 : `tick.mcfunction`を、ディスプレイの基準エンティティ(tag=display01_00)を実行者として常時実行させる。  
 
+▼設置用ファンクションの実行例  
+1. `function ****:****/031_display01/init`  
+2. `execute positioned ~ ~1 ~ rotated ~45 ~10 run function ****:****/031_display01/set`  
+3. `execute as @e[tag=display01_00] if entity @p[distance=..10] run function ****:****/031_display01/tick`  
+
+![display01](https://user-images.githubusercontent.com/60039093/220151026-478e45b6-e8ac-4aee-a6a3-56cf1e99b4d0.gif)  
+▲動作の様子  
 
 ---
-<a id="2.25"></a>
-### 2.11 殴った/クリックしたエンティティ探査(進捗+二分探査) / entity_ex1  
+<a id="2.32"></a>
+### 2.32 text_displayと視点探査を活用したディスプレイ(billboard:center) / display02  
 **■[説明/Description]**  
 準備中  
 
