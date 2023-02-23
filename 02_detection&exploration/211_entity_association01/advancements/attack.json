@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "attack": {
+            "trigger": "minecraft:player_hurt_entity"
+        }
+    },
+    "rewards": {
+        "function": "211_entity_association01:attacked"
+    }
+}
