@@ -6,9 +6,11 @@ summon text_display ~ ~ ~ {Tags:[temp,display01,display01_00],transformation:[0.
 # 向きを設定する
 tp @e[tag=temp] ~ ~ ~ ~ ~
 execute as @e[tag=temp] on passengers run tp @s ~ ~ ~ ~ ~
+
 # 視点取得用のエンティティを召喚(存在しない場合)
 execute unless entity @e[tag=display01_pos1] run summon marker ~ ~ ~ {Tags:[display01,display01_pos,display01_pos1]}
 execute unless entity @e[tag=display01_pos2] run summon marker ~ ~ ~ {Tags:[display01,display01_pos,display01_pos2]}
 execute unless entity @e[tag=display01_marker] run summon marker ~ ~ ~ {Tags:[display01,display01_marker]}
+
 # タグ削除
 tag @e[tag=temp] remove temp
