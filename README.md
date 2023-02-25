@@ -12,11 +12,10 @@
 2. [**検知/探査**](#2)  
  2.11. [殴った/クリックしたエンティティ探査(進捗+execute on)](#2.11)  
  2.12. [殴った/クリックしたエンティティ探査(進捗+二分探査)](#2.12)  
- 2.21. [角をすり抜けない視線先ブロック探査(execute増幅)](#2.21)  
- 2.22. [角をすり抜けない視線先ブロック探査(functionループ)](#2.22)  
- 2.23. [ヒットボックス準拠の視線先エンティティ探査(execute増幅)](#2.23)  
- 2.24. [ヒットボックス準拠の視線先エンティティ探査(functionループ)](#2.24)  
- 2.25. [ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ)](#2.25)  
+ 2.21. [角をすり抜けない視線先ブロック探査(functionループ)](#2.21)  
+ 2.22. [ヒットボックス準拠の視線先エンティティ探査(execute)](#2.23)  
+ 2.23. [ヒットボックス準拠の視線先エンティティ探査(functionループ)](#2.24)  
+ 2.24. [ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ)](#2.25)  
  2.31. [text_displayと視点探査を活用したディスプレイ](#2.31)  
 3. [**システム**](#3)  
  3.11 [ルートテーブルを使ったブロック名取得](#3.11)  
@@ -65,36 +64,63 @@ block_displayで作成した、木でできた窓枠とその周辺。
 <a id="2.11"></a>
 ### 2.11 殴った/クリックしたエンティティ探査(進捗+execute on) / entity_association01  
 **■[説明/Description]**  
-プレイヤーがエンティティを殴った時、進捗(player_hurt_entity)によって実行されるファンクションから殴った相手のエンティティを探すコマンドの例。  
-execute onの利用により簡潔にできるようになった。  
-薙ぎ払い攻撃をしたときに、どの敵が直接攻撃された敵で、どの敵が薙ぎ払いに巻き込まれた敵かを区別することなどはできない。  
-execute onの判定は数秒残るようなので、一度プレイヤーに殴られたモブが、プレイヤーが別のモブを殴るときと同時に別の方法でダメージを受けたとき(落下など)は誤作動を起こす可能性がある。あんまり起きないとは思うけど。  
+プレイヤーがエンティティを殴った時の進捗(player_hurt_entity)や右クリックしたときの進捗(player_interacted_with_entity)によって実行されるファンクションから対象のエンティティを探すコマンドの例。execute on attacker/on targetの利用により簡潔にできるようになった。  
+**モブ攻撃/interaction左クリック/interaction右クリック**の3つで可能。  
+- モブ以外の攻撃先/左クリック先検知と、interaction以外(村人や額縁など)の右クリック先の探査はできない。  
+- 薙ぎ払い攻撃をしたときに、どの敵が直接攻撃された敵で、どの敵が薙ぎ払いに巻き込まれた敵かを区別することなどはできない。  
+- execute onの判定は数秒残るようなので、一度プレイヤーに殴られたモブが、プレイヤーが別のモブを殴るときと同時に別の方法でダメージを受けたとき(落下など)は誤作動を起こす可能性がある。あんまり起きないとは思うけど。  
 
 **■[使い方/How to use]**  
-functionsとadvancements内のファイルを適当な場所に入れてその辺のモブを殴るだけ  
+`211_entity_association01`を`data/`直下などに入れ初期設定:`init.mcfunction`を実行したら、あとは適当にモブを殴ったりinteractionを右/左クリックしたりするとエンティティの位置でパーティクルが出る。  
+`attack_mob.mcfunction`,`attack_interaction.mcfunction`,`interact_interaction.mcfunction`の中をいじれば実行コマンドを変えられる。  
+
+![entity_association01](https://user-images.githubusercontent.com/60039093/221373412-b2dc3cf9-f5dd-4d84-8101-bcc03f14704a.gif)  
+▲動作の様子
 
 ---
 <a id="2.12"></a>
 ### 2.12 殴った/クリックしたエンティティ探査(進捗+二分探査) / entity_association02  
 **■[説明/Description]**  
-前項のコマンドの過去版。execute onが実装されたのでほぼ使い道はないが、応用として残しておく。判定したい敵にあらかじめidを付与しておく必要があったりコマンドが多かったりするので、特に必要がなければ前項の方法でいいと思う。  
-利点としては前項で上げた問題点はないという部分だけ。  
+プレイヤーがエンティティを殴った時の進捗(player_hurt_entity)や右クリックしたときの進捗(player_interacted_with_entity)によって実行されるファンクションから対象のエンティティを探すコマンドの例。idを二分探査してエンティティを見つける。前項のやり方では検知できないエンティティなどの右クリ検知がかなり正確に可能。  
+**モブとinteractionへの攻撃/アクション可能エンティティ(村人,額縁,アマスタ,interaction)への左クリック**の2つで可能。  
+- モブとinteraction以外の攻撃先/左クリック先検知、右クリックでアクション不可能なエンティティは探査できない。  
+- 薙ぎ払い攻撃をしたときに直接攻撃された敵→巻き込まれた敵の順で実行される  
+- 仕組み上誤検知は起こらない  
+- コマンド実行数がやや多め  
+- id付与をあらかじめしなくてはいけない  
+
+**■[原理/principle]**  
+事前に二進数化されたidを付与されたエンティティを、ビット毎に用意されたcriteriaで解除状況と比較して探査を行う。  
 
 **■[使い方/How to use]**  
-functionsとadvancements内のファイルを適当な場所に入れ、対象にしたいモブを実行者としてid.mcfunctionを実行したのち、殴るだけ  
+`212_entity_association02`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行しid付与:`id.mcfunction`を対象にしたいエンティティを実行者にして実行する。  
+`attack.mcfunction`,`interaction.mcfunction`の中をいじれば実行コマンドを変えられる。階層やフォルダ名を変えると変更点が多くなるので注意。  
+
+▼id付与ファンクションの実行例  
+ `execute as @e[type=!player,distance=..10] run function 212_entity_association02:id`  
+
+![entity_association02](https://user-images.githubusercontent.com/60039093/221374453-572432cb-5b36-41fe-a900-1c52278f1967.gif)  
+▲動作の様子
 
 ---
 <a id="2.21"></a>
-### 2.21 角をすり抜けない視線先ブロック探査(execute増幅) / looked_block_exploration01  
+### 2.21 角をすり抜けない視線先ブロック探査 / block_exploration  
 **■[説明/Description]**  
-準備中  
+角をすり抜けない視線先ブロック探査。直線状に探査点を増やすやり方だとどうしてもすり抜けてしまった角をすり抜けないように探査できる。functionループで探査することは変わらないが、視線上ではない8方向に手を伸ばしてチェックすることで角抜けがなくなる。しかし逆にブロックの判定がわずかに大きくなるので、どちらを使うかは用途次第。  
 
 **■[使い方/How to use]**  
+`221_block_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`point.mcfunction`の中身が探査終了点で実行されるので、好きなように書き換えられる。  
 
+▼常時実行ファンクションの実行例  
+`execute as @p at @s run function 221_block_exploration:root` 
+
+![block_exploration](https://user-images.githubusercontent.com/60039093/221375086-7ee6e56d-e221-496c-97b4-f775cfbd23a6.gif)  
+▲動作の様子
 
 ---
 <a id="2.22"></a>
-### 2.22 角をすり抜けない視線先ブロック探査(functionループ) / looked_block_exploration02  
+### 2.22 ヒットボックス準拠の視線先エンティティ探査(execute) / entity_exploration01  
 **■[説明/Description]**  
 準備中  
 
@@ -103,7 +129,7 @@ functionsとadvancements内のファイルを適当な場所に入れ、対象�
 
 ---
 <a id="2.23"></a>
-### 2.23 ヒットボックス準拠の視線先エンティティ探査(execute増幅) / looked_entity_exploration01  
+### 2.23 ヒットボックス準拠の視線先エンティティ探査(functionループ) / entity_exploration02  
 **■[説明/Description]**  
 準備中  
 
@@ -112,45 +138,37 @@ functionsとadvancements内のファイルを適当な場所に入れ、対象�
 
 ---
 <a id="2.24"></a>
-### 2.24 ヒットボックス準拠の視線先エンティティ探査(functionループ) / looked_entity_exploration02  
+### 2.24 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
 **■[説明/Description]**  
 準備中  
 
 **■[使い方/How to use]**  
-
-
----
-<a id="2.25"></a>
-### 2.25 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
-**■[説明/Description]**  
-準備中  
-
-**■[使い方/How to use]**  
-
 
 ---
 <a id="2.31"></a>
-### 2.31 text_displayと視点探査を活用したディスプレイ(billboard:fix) / display  
+### 2.31 text_displayと視点探査を活用したディスプレイ / display01  
 **■[説明/Description]**  
 text_displayで作った固定されたディスプレイと、それを利用したディスプレイシステムの一例。  
+`billboard:fix`と`billboard:center`の二つのモードで利用可能。
 とりあえず視点算出とホバーイベントの実装のみ。  
-クリックイベントや演出の強化は実装予定。
+クリックイベントや演出の強化は実装予定。  
 
+**■[原理/principle]**  
 二分探査でディスプレイ面とプレイヤーの視線との交点を探査し、ベクトルと回転行列の概念を用いて面上における視点の座標を計算する。軽量化を心がけてはいるけどやや重いかも。  
 ボタンの位置と座標を用いて各種イベントを実行できる。　
 
 **■[使い方/How to use]**  
-`031_display/`内の3つのファンクションをデータパック内の好きな位置に置き、以下の手順で実行する。  
+`031_display01/`内の3つのファンクションをデータパック内の好きな位置に置き、以下の手順で実行する。  
 1. 初期設定 : `init.mcfunction`を実行してスコア等を設定。  
 2. ディスプレイ設置 : `set_fixed.mcfunction`か`set_center.mcfunction`を好きな位置と向きで実行するとその位置と向きで設置される。  
-3. 常時実行 : `tick.mcfunction`を、ディスプレイの基準エンティティ(tag=display_00)を実行者として常時実行させる。  
+3. 常時実行 : `tick.mcfunction`を、ディスプレイの基準エンティティ(tag=display01_00)を実行者として常時実行させる。  
 
 ▼設置用ファンクションの実行例  
-1. `function ****:****/031_display/init`  
-2. `execute positioned ~ ~1 ~ rotated ~45 ~10 run function ****:****/031_display/set`  
-3. `execute as @e[tag=display_00] if entity @p[distance=..10] run function ****:****/031_display/tick`  
+1. `function ****:****/031_display01/init`  
+2. `execute positioned ~ ~1 ~ rotated ~45 ~10 run function ****:****/031_display01/set`  
+3. `execute as @e[tag=display01_00] if entity @p[distance=..10] run function ****:****/031_display01/tick`  
 
-![display](https://user-images.githubusercontent.com/60039093/220151026-478e45b6-e8ac-4aee-a6a3-56cf1e99b4d0.gif)  
+![display01](https://user-images.githubusercontent.com/60039093/220151026-478e45b6-e8ac-4aee-a6a3-56cf1e99b4d0.gif)  
 ▲動作の様子(billboard:fixed)  
 
 ---
