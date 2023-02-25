@@ -146,7 +146,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ---
 <a id="2.31"></a>
-### 2.31 text_displayと視点探査を活用したディスプレイ / display01  
+### 2.31 text_displayと視点探査を活用したディスプレイ / display  
 **■[説明/Description]**  
 text_displayで作った固定されたディスプレイと、それを利用したディスプレイシステムの一例。  
 `billboard:fix`と`billboard:center`の二つのモードで利用可能。
@@ -158,15 +158,15 @@ text_displayで作った固定されたディスプレイと、それを利用�
 ボタンの位置と座標を用いて各種イベントを実行できる。　
 
 **■[使い方/How to use]**  
-`031_display01/`内の3つのファンクションをデータパック内の好きな位置に置き、以下の手順で実行する。  
+`031_display/`内の3つのファンクションをデータパック内の好きな位置に置き、以下の手順で実行する。  
 1. 初期設定 : `init.mcfunction`を実行してスコア等を設定。  
 2. ディスプレイ設置 : `set_fixed.mcfunction`か`set_center.mcfunction`を好きな位置と向きで実行するとその位置と向きで設置される。  
-3. 常時実行 : `tick.mcfunction`を、ディスプレイの基準エンティティ(tag=display01_00)を実行者として常時実行させる。  
+3. 常時実行 : `tick.mcfunction`を、ディスプレイの基準エンティティ(tag=display_00)を実行者として常時実行させる。  
 
 ▼設置用ファンクションの実行例  
-1. `function ****:****/031_display01/init`  
-2. `execute positioned ~ ~1 ~ rotated ~45 ~10 run function ****:****/031_display01/set`  
-3. `execute as @e[tag=display01_00] if entity @p[distance=..10] run function ****:****/031_display01/tick`  
+1. `function ****:****/031_display/init`  
+2. `execute positioned ~ ~1 ~ rotated ~45 ~10 run function ****:****/031_display/set`  
+3. `execute as @e[tag=display_00] if entity @p[distance=..10] run function ****:****/031_display/tick`  
 
 ![display01](https://user-images.githubusercontent.com/60039093/220151026-478e45b6-e8ac-4aee-a6a3-56cf1e99b4d0.gif)  
 ▲動作の様子(billboard:fixed)  
