@@ -4,7 +4,7 @@
 
 ## ループの開始
 # 探査距離の上限 m
-scoreboard players set #blex:root _ 25
+scoreboard players set #blex:loop _ 25
 # ループの開始
-# プレイヤーから実行する前提でanchoredがついているので注意の
-execute anchored eyes positioned ^ ^ ^ run function 221_block_exploration:1
+# プレイヤーから実行する前提でanchoredがついているので注意
+execute anchored eyes positioned ^ ^ ^0.5 run function 221_block_exploration:1
