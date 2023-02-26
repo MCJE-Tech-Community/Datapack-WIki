@@ -155,7 +155,7 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 <a id="2.23"></a>
 ### 2.23 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
 
-![exploration](https://user-images.githubusercontent.com/60039093/221410895-47fb3ff7-5cb2-4786-95f5-4eb6f4241e79.gif)
+![exploration](https://user-images.githubusercontent.com/60039093/221410895-47fb3ff7-5cb2-4786-95f5-4eb6f4241e79.gif)  
 ▲動作の様子  
 
 **■[説明/Description]**  
