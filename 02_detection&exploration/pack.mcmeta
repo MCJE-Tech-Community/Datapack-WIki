@@ -1,0 +1,6 @@
+{
+    "pack":{
+        "pack_format" : 12,
+        "description" : "02 精度の高い検知や探査等を行うコマンド"
+    }
+}
