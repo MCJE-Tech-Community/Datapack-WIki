@@ -38,8 +38,9 @@ block_displayで作成した、コロコロ付きの丸椅子。
 `execute positioned ~ ~ ~ rotated ~ 0 run function ****:****/chair01_put`  
 
 ![chair01](https://user-images.githubusercontent.com/60039093/219947694-d13ef55d-5a56-4f8b-9991-5054d16d3470.png)  
-▲イス1の写真
+▲イス1の写真  
 
+(2023/02/26):追加  
 
 ---
 <a id="1.21"></a>
@@ -56,6 +57,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 ![window01](https://user-images.githubusercontent.com/60039093/219947547-3c49a034-b5e1-4d20-b5e5-86f2f21c9ae9.png)  
 ▲窓枠1の写真 (左が設置前/右が設置後)  
 
+(2023/02/??):追加  
 
 ***
 
@@ -75,7 +77,9 @@ block_displayで作成した、木でできた窓枠とその周辺。
 `attack_mob.mcfunction`,`attack_interaction.mcfunction`,`interact_interaction.mcfunction`の中をいじれば実行コマンドを変えられる。  
 
 ![entity_association01](https://user-images.githubusercontent.com/60039093/221373412-b2dc3cf9-f5dd-4d84-8101-bcc03f14704a.gif)  
-▲動作の様子
+▲動作の様子  
+
+(2023/02/26):追加  
 
 ---
 <a id="2.12"></a>
@@ -89,6 +93,8 @@ block_displayで作成した、木でできた窓枠とその周辺。
 - コマンド実行数がやや多め  
 - id付与をあらかじめしなくてはいけない  
 
+Chen氏の改良案をもとにrequirments周りを改良してます。~~ありがとにゃん。~~ ありがとうございます！
+
 **■[原理/principle]**  
 事前に二進数化したidが付与されたエンティティを、ビット毎に用意されたcriteriaで解除状況と比較して探査を行う。  
 
@@ -100,7 +106,9 @@ block_displayで作成した、木でできた窓枠とその周辺。
  `execute as @e[type=!player,distance=..10] run function 212_entity_association02:id`  
 
 ![entity_association02](https://user-images.githubusercontent.com/60039093/221374453-572432cb-5b36-41fe-a900-1c52278f1967.gif)  
-▲動作の様子
+▲動作の様子  
+
+(2023/02/26):追加  
 
 ---
 <a id="2.21"></a>
@@ -116,7 +124,9 @@ block_displayで作成した、木でできた窓枠とその周辺。
 `execute as @p at @s run function 221_block_exploration:root` 
 
 ![block_exploration](https://user-images.githubusercontent.com/60039093/221375086-7ee6e56d-e221-496c-97b4-f775cfbd23a6.gif)  
-▲動作の様子
+▲動作の様子  
+
+(2023/02/26):追加  
 
 ---
 <a id="2.22"></a>
@@ -170,6 +180,8 @@ text_displayで作っ0たディスプレイと、それを利用したディス�
 
 ![display01](https://user-images.githubusercontent.com/60039093/220151026-478e45b6-e8ac-4aee-a6a3-56cf1e99b4d0.gif)  
 ▲動作の様子(billboard:fixed)  
+
+(2023/02/26):追加  
 
 ---
 
