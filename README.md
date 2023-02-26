@@ -13,9 +13,8 @@
  2.11. [殴った/クリックしたエンティティ探査(進捗+execute on)](#2.11)  
  2.12. [殴った/クリックしたエンティティ探査(進捗+二分探査)](#2.12)  
  2.21. [角をすり抜けない視線先ブロック探査(functionループ)](#2.21)  
- 2.22. [ヒットボックス準拠の視線先エンティティ探査(execute)](#2.23)  
- 2.23. [ヒットボックス準拠の視線先エンティティ探査(functionループ)](#2.24)  
- 2.24. [ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ)](#2.25)  
+ 2.22. [ヒットボックス準拠の視線先エンティティ探査(functionループ)](#2.22)  
+ 2.23. [ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ)](#2.23)  
  2.31. [text_displayと視点探査を活用したディスプレイ](#2.31)  
 3. [**システム**](#3)  
  3.11 [ルートテーブルを使ったブロック名取得](#3.11)  
@@ -28,6 +27,10 @@
 ## 1. 装飾品/decorations  
 <a id="1.11"></a>
 ### 1.11 block_displayで作成したイス 1 / chair01  
+
+![chair01](https://user-images.githubusercontent.com/60039093/219947694-d13ef55d-5a56-4f8b-9991-5054d16d3470.png)  
+▲イス1の写真  
+
 **■[説明/Description]**  
 block_displayで作成した、コロコロ付きの丸椅子。  
 
@@ -37,14 +40,15 @@ block_displayで作成した、コロコロ付きの丸椅子。
 ▼設置用ファンクションの実行例  
 `execute positioned ~ ~ ~ rotated ~ 0 run function ****:****/chair01_put`  
 
-![chair01](https://user-images.githubusercontent.com/60039093/219947694-d13ef55d-5a56-4f8b-9991-5054d16d3470.png)  
-▲イス1の写真  
-
 (2023/02/26):追加  
 
 ---
 <a id="1.21"></a>
 ### 1.21 block_displayで作成した窓枠 1 / window01  
+
+![window01](https://user-images.githubusercontent.com/60039093/219947547-3c49a034-b5e1-4d20-b5e5-86f2f21c9ae9.png)  
+▲窓枠1の写真 (左が設置前/右が設置後)  
+
 **■[説明/Description]**  
 block_displayで作成した、木でできた窓枠とその周辺。  
 
@@ -54,9 +58,6 @@ block_displayで作成した、木でできた窓枠とその周辺。
 ▼設置用ファンクションの実行例  
 `execute positioned ~ ~1.5 ~3.5 rotated ~ 0 run function ****:****/window01_put`  
 
-![window01](https://user-images.githubusercontent.com/60039093/219947547-3c49a034-b5e1-4d20-b5e5-86f2f21c9ae9.png)  
-▲窓枠1の写真 (左が設置前/右が設置後)  
-
 (2023/02/??):追加  
 
 ***
@@ -65,6 +66,10 @@ block_displayで作成した、木でできた窓枠とその周辺。
 ## 2. 検知・探査/Detection&Exploretion  
 <a id="2.11"></a>
 ### 2.11 殴った/クリックしたエンティティ探査(進捗+execute on) / entity_association01  
+
+![entity_association01](https://user-images.githubusercontent.com/60039093/221373412-b2dc3cf9-f5dd-4d84-8101-bcc03f14704a.gif)  
+▲動作の様子  
+
 **■[説明/Description]**  
 プレイヤーがエンティティを殴った時の進捗(player_hurt_entity)や右クリックしたときの進捗(player_interacted_with_entity)によって実行されるファンクションから対象のエンティティを探すコマンドの例。execute on attacker/on targetの利用により簡潔にできるようになった。  
 **モブ攻撃/interaction左クリック/interaction右クリック**の3つで可能。  
@@ -76,14 +81,15 @@ block_displayで作成した、木でできた窓枠とその周辺。
 `211_entity_association01`を`data/`直下などに入れ初期設定:`init.mcfunction`を実行したら、あとは適当にモブを殴ったりinteractionを右/左クリックしたりするとエンティティの位置でパーティクルが出る。  
 `attack_mob.mcfunction`,`attack_interaction.mcfunction`,`interact_interaction.mcfunction`の中をいじれば実行コマンドを変えられる。  
 
-![entity_association01](https://user-images.githubusercontent.com/60039093/221373412-b2dc3cf9-f5dd-4d84-8101-bcc03f14704a.gif)  
-▲動作の様子  
-
 (2023/02/26):追加  
 
 ---
 <a id="2.12"></a>
 ### 2.12 殴った/クリックしたエンティティ探査(進捗+二分探査) / entity_association02  
+
+![entity_association02](https://user-images.githubusercontent.com/60039093/221374453-572432cb-5b36-41fe-a900-1c52278f1967.gif)  
+▲動作の様子  
+
 **■[説明/Description]**  
 プレイヤーがエンティティを殴った時の進捗(player_hurt_entity)や右クリックしたときの進捗(player_interacted_with_entity)によって実行されるファンクションから対象のエンティティを探すコマンドの例。idを二分探査してエンティティを見つける。前項のやり方では検知できないエンティティなどの右クリ検知がかなり正確に可能。  
 **モブとinteractionへの攻撃/アクション可能エンティティ(村人,額縁,アマスタ,interaction等)への左クリック**の2つで可能。  
@@ -105,14 +111,15 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 ▼id付与ファンクションの実行例  
  `execute as @e[type=!player,distance=..10] run function 212_entity_association02:id`  
 
-![entity_association02](https://user-images.githubusercontent.com/60039093/221374453-572432cb-5b36-41fe-a900-1c52278f1967.gif)  
-▲動作の様子  
-
 (2023/02/26):追加  
 
 ---
 <a id="2.21"></a>
 ### 2.21 角をすり抜けない視線先ブロック探査 / block_exploration  
+
+![block_exploration](https://user-images.githubusercontent.com/60039093/221375086-7ee6e56d-e221-496c-97b4-f775cfbd23a6.gif)  
+▲動作の様子  
+
 **■[説明/Description]**  
 角をすり抜けない視線先ブロック探査。直線状に探査点を増やすやり方だとどうしてもすり抜けてしまった角をすり抜けないように探査できる。functionループで探査することは変わらないが、視線上だけではない計8方向に手を伸ばしてチェックすることで角抜けがなくなる。しかし逆にブロックの判定がわずかに大きくなるので、どちらを使うかは用途次第。  
 
@@ -123,14 +130,11 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 ▼常時実行ファンクションの実行例  
 `execute as @p at @s run function 221_block_exploration:root` 
 
-![block_exploration](https://user-images.githubusercontent.com/60039093/221375086-7ee6e56d-e221-496c-97b4-f775cfbd23a6.gif)  
-▲動作の様子  
-
 (2023/02/26):追加  
 
 ---
 <a id="2.22"></a>
-### 2.22 ヒットボックス準拠の視線先エンティティ探査(execute) / entity_exploration01  
+### 2.22 ヒットボックス準拠の視線先エンティティ探査(functionループ) / entity_exploration  
 **■[説明/Description]**  
 準備中  
 
@@ -139,16 +143,7 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 
 ---
 <a id="2.23"></a>
-### 2.23 ヒットボックス準拠の視線先エンティティ探査(functionループ) / entity_exploration02  
-**■[説明/Description]**  
-準備中  
-
-**■[使い方/How to use]**  
-
-
----
-<a id="2.24"></a>
-### 2.24 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
+### 2.23 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
 **■[説明/Description]**  
 準備中  
 
@@ -157,6 +152,10 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 ---
 <a id="2.31"></a>
 ### 2.31 text_displayと視点探査を活用したディスプレイ / display  
+
+![display01](https://user-images.githubusercontent.com/60039093/220151026-478e45b6-e8ac-4aee-a6a3-56cf1e99b4d0.gif)  
+▲動作の様子(billboard:fixed)  
+
 **■[説明/Description]**  
 text_displayで作っ0たディスプレイと、それを利用したディスプレイシステムの一例。  
 `billboard:fix`と`billboard:center`の二つのモードで利用可能。
@@ -177,9 +176,6 @@ text_displayで作っ0たディスプレイと、それを利用したディス�
 1. `function ****:****/031_display/init`  
 2. `execute positioned ~ ~1 ~ rotated ~45 ~10 run function ****:****/031_display/set`  
 3. `execute as @e[tag=display_00] if entity @p[distance=..10] run function ****:****/031_display/tick`  
-
-![display01](https://user-images.githubusercontent.com/60039093/220151026-478e45b6-e8ac-4aee-a6a3-56cf1e99b4d0.gif)  
-▲動作の様子(billboard:fixed)  
 
 (2023/02/26):追加  
 
