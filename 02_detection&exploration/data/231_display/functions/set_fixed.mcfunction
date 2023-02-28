@@ -8,9 +8,9 @@ tp @e[tag=temp] ~ ~ ~ ~ ~
 execute as @e[tag=temp] on passengers run tp @s ~ ~ ~ ~ ~
 
 # 視点取得用のエンティティを召喚(存在しない場合)
-execute unless entity @e[tag=display_pos1] run summon marker ~ ~ ~ {Tags:[display,display_pos,display_pos1]}
-execute unless entity @e[tag=display_pos2] run summon marker ~ ~ ~ {Tags:[display,display_pos,display_pos2]}
-execute unless entity @e[tag=display_marker] run summon marker ~ ~ ~ {Tags:[display,display_marker]}
+execute unless entity 0-0-0-0-1000000e7 run summon marker ~ ~ ~ {Tags:[display,display_pos,display_pos1],UUID:[I;0,0,1,231]}
+execute unless entity 0-0-0-0-2000000e7 run summon marker ~ ~ ~ {Tags:[display,display_pos,display_pos2],UUID:[I;0,0,2,231]}
+execute unless entity 0-0-0-0-3000000e7 run summon marker ~ ~ ~ {Tags:[display,display_marker],UUID:[I;0,0,3,231]}
 
 # タグ削除
 tag @e[tag=temp] remove temp

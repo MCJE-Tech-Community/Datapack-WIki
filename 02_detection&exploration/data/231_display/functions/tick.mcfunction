@@ -3,20 +3,20 @@
 
 ## 視点の二分探査
 # billboard : fixed のentity限定
-execute if data entity @s {billboard:"fixed"} at @s run tp @e[tag=display_pos1,limit=1] ^ ^ ^0.1 ~ ~
-execute if data entity @s {billboard:"fixed"} at @s run tp @e[tag=display_pos2,limit=1] ^ ^ ^-0.1 ~ ~
+execute if data entity @s {billboard:"fixed"} at @s run tp 0-0-0-0-1000000e7 ^ ^ ^0.1 ~ ~
+execute if data entity @s {billboard:"fixed"} at @s run tp 0-0-0-0-2000000e7 ^ ^ ^-0.1 ~ ~
 execute if data entity @s {billboard:"fixed"} as @p at @s anchored eyes positioned ^ ^ ^ as @e[tag=display_pos,limit=1,sort=nearest] positioned as @s run tp @s ~ ~ ~ ~ ~ 
 execute if data entity @s {billboard:"fixed"} as @p at @s anchored eyes positioned ^ ^ ^ as @e[tag=display_pos,limit=1,sort=furthest] positioned as @s facing ^ ^ ^-1 run tp @s ~ ~ ~ ~ ~ 
 # billboard : center のentity限定
-execute if data entity @s {billboard:"center"} at @s rotated as @p run tp @e[tag=display_pos1,limit=1] ^ ^ ^-0.1 ~ ~
-execute if data entity @s {billboard:"center"} at @s rotated as @p facing ^ ^ ^-1 run tp @e[tag=display_pos2,limit=1] ^ ^ ^-0.1 ~ ~
+execute if data entity @s {billboard:"center"} at @s rotated as @p run tp 0-0-0-0-1000000e7 ^ ^ ^-0.1 ~ ~
+execute if data entity @s {billboard:"center"} at @s rotated as @p facing ^ ^ ^-1 run tp 0-0-0-0-2000000e7 ^ ^ ^-0.1 ~ ~
 # 二分探査
-execute as @p at @s anchored eyes positioned ^ ^ ^ rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^16 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^8 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^4 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^2 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^1 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.5 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.25 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.125 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.0625 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.03125 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.015625 run tp @e[tag=display_marker,limit=1] ~ ~ ~
+execute as @p at @s anchored eyes positioned ^ ^ ^ rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^16 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^8 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^4 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^2 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^1 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.5 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.25 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.125 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.0625 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.03125 rotated as @e[tag=display_pos,limit=1,sort=nearest] positioned ^ ^ ^0.015625 run tp 0-0-0-0-3000000e7 ~ ~ ~
 
 ## 座標の計算
 # データの取得
 execute if data entity @s {billboard:"center"} at @s rotated as @p facing ^ ^ ^-1 run tp @s ~ ~ ~ ~ ~
-data modify storage _: Pos1 set from entity @e[tag=display_marker,limit=1] Pos
+data modify storage _: Pos1 set from entity 0-0-0-0-3000000e7 Pos
 data modify storage _: Pos2 set from entity @s Pos
 data modify storage _: Rot1 set from entity @s Rotation
 
