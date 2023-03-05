@@ -138,7 +138,7 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 <a id="2.22"></a>
 ### 2.22 かなり正確な視線先ブロック探査 / block_exploration02  
 
- ![block_exploration02](https://user-images.githubusercontent.com/60039093/222947963-6a2089ba-d656-4bb0-b943-ed5d6a5bbfcf.gif)
+ ![block_exploration02](https://user-images.githubusercontent.com/60039093/222947963-6a2089ba-d656-4bb0-b943-ed5d6a5bbfcf.gif)  
 ▲動作の様子(青いパーティクルがプレイヤーが見ている面)  
 
 **■[説明/Description]**  
