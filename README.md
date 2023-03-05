@@ -40,7 +40,7 @@ block_displayで作成した、コロコロ付きの丸椅子。
 ▼設置用ファンクションの実行例  
 `execute positioned ~ ~ ~ rotated ~ 0 run function ****:****/chair01_put`  
 
-(2023/02/26):追加  
+(2023/02/21):追加  
 
 ---
 <a id="1.21"></a>
@@ -58,7 +58,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 ▼設置用ファンクションの実行例  
 `execute positioned ~ ~1.5 ~3.5 rotated ~ 0 run function ****:****/window01_put`  
 
-(2023/02/??):追加  
+(2023/02/21):追加  
 
 ***
 
@@ -81,7 +81,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 `211_entity_association01`を`data/`直下などに入れ初期設定:`init.mcfunction`を実行したら、あとは適当にモブを殴ったりinteractionを右/左クリックしたりするとエンティティの位置でパーティクルが出る。  
 `attack_mob.mcfunction`,`attack_interaction.mcfunction`,`interact_interaction.mcfunction`の中をいじれば実行コマンドを変えられる。  
 
-(2023/02/26):追加  
+(2023/02/23):追加  
 
 ---
 <a id="2.12"></a>
@@ -111,7 +111,7 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 ▼id付与ファンクションの実行例  
  `execute as @e[type=!player,distance=..10] run function 212_entity_association02:id`  
 
-(2023/02/26):追加  
+(2023/02/23):追加  
 
 ---
 <a id="2.21"></a>
@@ -121,11 +121,11 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 ▲動作の様子  
 
 **■[説明/Description]**  
-角をすり抜けない視線先ブロック探査。直線状に探査点を増やすやり方だとどうしてもすり抜けてしまった角をすり抜けないように探査できる。functionループで探査することは変わらないが、視線上だけではない計8方向に手を伸ばしてチェックすることで角抜けがなくなる。しかし逆にブロックの判定がわずかに大きくなるので、どちらを使うかは用途次第。  
+角をすり抜けない視線先ブロック探査。直線状に探査点を増やすやり方だとどうしてもすり抜けてしまった角をすり抜けないように探査できる。functionループで探査することは変わらないが、視線上だけではない計8方向に手を伸ばしてチェックすることで角抜けがなくなる。しかしブロックの判定が0.01m程大きくなるので、どちらを使うかは用途次第。  
 
 **■[使い方/How to use]**  
 `221_block_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
-`point.mcfunction`の中身が探査終了点で実行されるので、好きなように書き換えられる。  
+`point.mcfunction`の中身が探査終了点で実行されるので、好きなように書き換えて使用可能。  
 
 ▼常時実行ファンクションの実行例  
 `execute as @p at @s run function 221_block_exploration:root` 
@@ -135,19 +135,40 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 ---
 <a id="2.22"></a>
 ### 2.22 ヒットボックス準拠の視線先エンティティ探査(functionループ) / entity_exploration  
+
+![entity_exploration](https://user-images.githubusercontent.com/60039093/221410523-58b62fe0-f262-49cb-a4d7-7e7d4920d991.gif)  
+▲動作の様子  
+
 **■[説明/Description]**  
-準備中  
+誤差の少ない視線先エンティティ探査。直線状に探査点を増やすやり方だとすり抜けてしまったり、execute幾何学を使うやり方だと形状によってうまく探査できないが、四角形の判定を用いてfunctionループ探査をすることで誤差を少なくして探査できる。こちらも判定は0.01m程大きくなるので、どちらを使うかは用途次第。functionループなので、前項のブロック探査と組み合わせることが可能(後述)。  
 
 **■[使い方/How to use]**  
+`222_entity_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`targets.mcfunction`の中身が探査終了点で実行されるので、好きなように書き換えて使用可能。対象になるエンティティには`targets`というタグが付与(複数になる可能あり)され、そのfunction内で参照可能。  
 
+▼常時実行ファンクションの実行例  
+`execute as @p at @s run function 222_entity_exploration:root` 
+
+(2023/02/26):追加  
 
 ---
 <a id="2.23"></a>
 ### 2.23 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
+
+![exploration](https://user-images.githubusercontent.com/60039093/221410895-47fb3ff7-5cb2-4786-95f5-4eb6f4241e79.gif)  
+▲動作の様子  
+
 **■[説明/Description]**  
-準備中  
+前項2つのブロック探査とエンティティ探査を組み合わせたコマンド。これによって、ブロックが手前にあったらエンティティが探査されないような、より直感的なシステムが作成可能。  
 
 **■[使い方/How to use]**  
+`223_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`targets.mcfunction`の中身がエンティティ探査終了点で実行され、`point.mcfunction`の中身がブロック探査終了点で実行されるので、好きなように書き換えて使用可能。対象になるエンティティには`targets`というタグが付与(複数になる可能あり)され、そのfunction内で参照可能。  
+
+▼常時実行ファンクションの実行例  
+`execute as @p at @s run function 223_exploration:root` 
+
+(2023/02/26):追加  
 
 ---
 <a id="2.31"></a>
@@ -157,7 +178,7 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 ▲動作の様子(billboard:fixed)  
 
 **■[説明/Description]**  
-text_displayで作っ0たディスプレイと、それを利用したディスプレイシステムの一例。  
+text_displayで作ったディスプレイと、それを利用したディスプレイシステムの一例。  
 `billboard:fix`と`billboard:center`の二つのモードで利用可能。
 とりあえず視点算出とホバーイベントの実装のみ。  
 クリックイベントや演出の強化は実装予定。  
@@ -177,7 +198,7 @@ text_displayで作っ0たディスプレイと、それを利用したディス�
 2. `execute positioned ~ ~1 ~ rotated ~45 ~10 run function ****:****/031_display/set`  
 3. `execute as @e[tag=display_00] if entity @p[distance=..10] run function ****:****/031_display/tick`  
 
-(2023/02/26):追加  
+(2023/02/21):追加  
 
 ---
 
