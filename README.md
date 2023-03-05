@@ -151,7 +151,7 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 ▼常時実行ファンクションの実行例  
 `execute as @p at @s run function 222_block_exploration02:root` 
 
-(2023/02/26):追加  
+(2023/03/05):追加  
 
 ---
 <a id="2.23"></a>
