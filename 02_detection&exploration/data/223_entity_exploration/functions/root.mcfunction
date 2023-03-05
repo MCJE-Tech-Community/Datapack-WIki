@@ -15,7 +15,7 @@ tag @s add root
 
 # ループの開始
 # プレイヤーから実行する前提でanchoredがついているので注意
-execute anchored eyes positioned ^ ^ ^0.5 run function 222_entity_exploration:1
+execute anchored eyes positioned ^ ^ ^0.5 run function 223_entity_exploration:1
 
 # タグ削除
 tag @s remove root

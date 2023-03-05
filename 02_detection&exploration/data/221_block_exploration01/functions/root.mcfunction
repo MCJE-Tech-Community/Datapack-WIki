@@ -6,5 +6,5 @@
 # 探査距離の上限 m
 scoreboard players set #blex:loop _ 25
 # ループの開始
-# プレイヤーから実行する前提でanchoredがついているので注意
-execute anchored eyes positioned ^ ^ ^0.5 run function 221_block_exploration:1
+# エンティティから実行する前提でanchoredがついているので注意
+execute anchored eyes positioned ^ ^ ^0.5 run function 221_block_exploration01:1

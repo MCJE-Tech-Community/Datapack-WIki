@@ -5,7 +5,7 @@
 # 立方体のdx,dy,dzによる探査範囲を置いてエンティティをチェック
 scoreboard players set #enex:003125 _ 0
 execute positioned ~-0.015625 ~-0.015625 ~-0.015625 as @e[tag=!root,dx=0,dy=0,dz=0] positioned ~-0.96875 ~-0.96875 ~-0.96875 if entity @s[dx=0,dy=0,dz=0] store success score #enex:003125 _ run tag @s add targets
-execute if score #enex:003125 _ matches 1 positioned ~-0.015625 ~-0.015625 ~-0.015625 run function 222_entity_exploration:targets
+execute if score #enex:003125 _ matches 1 positioned ~-0.015625 ~-0.015625 ~-0.015625 run function 223_entity_exploration:targets
 
 ## 後処理
 # タグ削除
