@@ -162,11 +162,11 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 前項2つのブロック探査とエンティティ探査を組み合わせたコマンド。これによって、ブロックが手前にあったらエンティティが探査されないような、より直感的なシステムが作成可能。  
 
 **■[使い方/How to use]**  
-`223_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`224_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
 `targets.mcfunction`の中身がエンティティ探査終了点で実行され、`point.mcfunction`の中身がブロック探査終了点で実行されるので、好きなように書き換えて使用可能。対象になるエンティティには`targets`というタグが付与(複数になる可能あり)され、そのfunction内で参照可能。  
 
 ▼常時実行ファンクションの実行例  
-`execute as @p at @s run function 223_exploration:root` 
+`execute as @p at @s run function 224_exploration:root` 
 
 (2023/02/26):追加  
 

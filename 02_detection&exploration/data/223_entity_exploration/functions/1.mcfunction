@@ -3,10 +3,10 @@
 
 ## 探査
 # 立方体のdx,dy,dzによる探査範囲を置いてエンティティをチェック
-execute if score #enex:loop _ matches 1.. positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=!root,dx=0,dy=0,dz=0] positioned ~0.5 ~0.5 ~0.5 positioned ^ ^ ^-0.25 run function 223_entity_exploration:05
-execute if score #enex:loop _ matches 1.. positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=!root,dx=0,dy=0,dz=0] positioned ~0.5 ~0.5 ~0.5 positioned ^ ^ ^0.25 run function 223_entity_exploration:05
+execute if score #02:loop _ matches 1.. positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=!root,dx=0,dy=0,dz=0] positioned ~0.5 ~0.5 ~0.5 positioned ^ ^ ^-0.25 run function 223_entity_exploration:05
+execute if score #02:loop _ matches 1.. positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=!root,dx=0,dy=0,dz=0] positioned ~0.5 ~0.5 ~0.5 positioned ^ ^ ^0.25 run function 223_entity_exploration:05
 
 ## ループ
 # エンティティがいなかったら1m先へ進む
-scoreboard players remove #enex:loop _ 1
-execute if score #enex:loop _ matches 1.. positioned ^ ^ ^1 run function 223_entity_exploration:1
+scoreboard players remove #02:loop _ 1
+execute if score #02:loop _ matches 1.. positioned ^ ^ ^1 run function 223_entity_exploration:1

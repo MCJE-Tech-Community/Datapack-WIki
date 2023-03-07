@@ -3,16 +3,8 @@
 
 ## 探査
 # 角8方向に探査点を伸ばしてチェック
-scoreboard players set #blex:0125 _ 0
-execute unless block ~0.0625 ~0.0625 ~0.0625 #221_block_exploration01:through run scoreboard players set #blex:0125 _ 1
-execute unless block ~0.0625 ~0.0625 ~-0.0625 #221_block_exploration01:through run scoreboard players set #blex:0125 _ 1
-execute unless block ~0.0625 ~-0.0625 ~0.0625 #221_block_exploration01:through run scoreboard players set #blex:0125 _ 1
-execute unless block ~0.0625 ~-0.0625 ~-0.0625 #221_block_exploration01:through run scoreboard players set #blex:0125 _ 1
-execute unless block ~-0.0625 ~0.0625 ~0.0625 #221_block_exploration01:through run scoreboard players set #blex:0125 _ 1
-execute unless block ~-0.0625 ~0.0625 ~-0.0625 #221_block_exploration01:through run scoreboard players set #blex:0125 _ 1
-execute unless block ~-0.0625 ~-0.0625 ~0.0625 #221_block_exploration01:through run scoreboard players set #blex:0125 _ 1
-execute unless block ~-0.0625 ~-0.0625 ~-0.0625 #221_block_exploration01:through run scoreboard players set #blex:0125 _ 1
-
+scoreboard players set #02:0125 _ 1
+execute if block ~0.0625 ~0.0625 ~0.0625 #221_block_exploration01:through if block ~0.0625 ~0.0625 ~-0.0625 #221_block_exploration01:through if block ~0.0625 ~-0.0625 ~0.0625 #221_block_exploration01:through if block ~0.0625 ~-0.0625 ~-0.0625 #221_block_exploration01:through if block ~-0.0625 ~0.0625 ~0.0625 #221_block_exploration01:through if block ~-0.0625 ~0.0625 ~-0.0625 #221_block_exploration01:through if block ~-0.0625 ~-0.0625 ~0.0625 #221_block_exploration01:through if block ~-0.0625 ~-0.0625 ~-0.0625 #221_block_exploration01:through run scoreboard players set #02:0125 _ 0
 # ブロックがあったらさらに細かくチェック
-execute if score #blex:0125 _ matches 1.. positioned ^ ^ ^-0.03125 run function 221_block_exploration01:00625
-execute if score #blex:0125 _ matches 1.. positioned ^ ^ ^0.03125 run function 221_block_exploration01:00625
+execute if score #02:0125 _ matches 1 positioned ^ ^ ^-0.03125 run function 221_block_exploration01:00625
+execute if score #02:0125 _ matches 1 positioned ^ ^ ^0.03125 run function 221_block_exploration01:00625

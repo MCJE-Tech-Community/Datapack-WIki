@@ -16,7 +16,7 @@ execute positioned 0.0 0.0 0.0 positioned ^ ^ ^-1 facing ~ 0.0 0.0 positioned as
 
 ## ループの開始
 # 探査距離の上限 m
-scoreboard players set #blex:loop _ 25
+scoreboard players set #02:loop _ 25
 # ループの開始
 # プレイヤーから実行する前提でanchoredがついているので注意
 execute anchored eyes positioned ^ ^ ^0.5 run function 222_block_exploration02:1

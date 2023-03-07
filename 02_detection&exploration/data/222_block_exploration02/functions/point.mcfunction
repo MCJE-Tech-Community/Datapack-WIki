@@ -13,6 +13,7 @@ execute align xyz positioned ~0.5 ~0.5 ~ run particle dust 0 0.7 0 0.5 ~ ~ ~ 0 0
 execute align xyz positioned ~0.5 ~0.5 ~1 run particle dust 0 0.7 0 0.5 ~ ~ ~ 0 0 0 0 1
 
 ## 見ている面にパーティクル
+# どの面を見ているかは#faceのスコアに記入されている
 execute if score #face _ matches 1 align xyz positioned ~1 ~0.5 ~0.5 run particle dust 0 0 1 0.5 ~ ~ ~ 0 0 0 0 1
 execute if score #face _ matches 2 align xyz positioned ~0.5 ~0.5 ~ run particle dust 0 0 1 0.5 ~ ~ ~ 0 0 0 0 1
 execute if score #face _ matches 3 align xyz positioned ~ ~0.5 ~0.5 run particle dust 0 0 1 0.5 ~ ~ ~ 0 0 0 0 1

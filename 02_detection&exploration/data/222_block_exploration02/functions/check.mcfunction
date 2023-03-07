@@ -42,8 +42,15 @@ execute if entity @s[x_rotation=0..180,scores={_=3..}] run scoreboard players se
 execute if entity @s[x_rotation=-180..0,scores={_=3..}] run scoreboard players set #face _ 0
 execute if entity @s[x_rotation=-180..0,scores={_=2}] if block ~ ~-1 ~ #222_block_exploration02:through run scoreboard players set #face _ 6
 
+# 辺の位置を表示するやつ
+# execute align xyz positioned ~ ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s anchored eyes positioned ^ ^ ^1.5 run particle dust 0 0 0 0.5 ~ ~ ~ 0 0 0 0 1
+# execute align xyz positioned ~1 ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s anchored eyes positioned ^ ^ ^1.5 run particle dust 0 0 0 0.5 ~ ~ ~ 0 0 0 0 1
+# execute align xyz positioned ~ ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s anchored eyes positioned ^ ^ ^1.5 run particle dust 0 0 0 0.5 ~ ~ ~ 0 0 0 0 1
+# execute align xyz positioned ~ ~1 ~1 facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s anchored eyes positioned ^ ^ ^1.5 run particle dust 0 0 0 0.5 ~ ~ ~ 0 0 0 0 1
+
+
 ## 探査の停止
 # スコアのセット
-execute if score #face _ matches 1..6 store result score #blex:1 _ store result score #blex:05 _ store result score #blex:025 _ store result score #blex:0125 _ store result score #blex:00625 _ store result score #blex:003125 _ run scoreboard players set #blex:loop _ 0
+execute if score #face _ matches 1..6 store result score #02:1 _ store result score #02:05 _ store result score #02:025 _ store result score #02:0125 _ store result score #02:00625 _ store result score #02:003125 _ run scoreboard players set #02:loop _ 0
 # 終了点での実行
 execute if score #face _ matches 1..6 run function 222_block_exploration02:point

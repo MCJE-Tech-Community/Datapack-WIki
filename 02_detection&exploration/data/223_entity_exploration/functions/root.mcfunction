@@ -3,12 +3,12 @@
 
 ## 開始前
 # 発光を付与したエンティティの発光を解除
-execute as @e[tag=enex_glow] run data modify entity @s Glowing set value 0
-tag @e[tag=enex_glow] remove enex_glow
+execute as @e[tag=02_glow] run data modify entity @s Glowing set value 0
+tag @e[tag=02_glow] remove 02_glow
 
 ## ループの開始
 # 探査距離の上限 m
-scoreboard players set #enex:loop _ 25
+scoreboard players set #02:loop _ 25
 
 # 自身を除外するためのタグ
 tag @s add root
