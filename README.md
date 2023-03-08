@@ -13,8 +13,9 @@
  2.11. [殴った/クリックしたエンティティ探査(進捗+execute on)](#2.11)  
  2.12. [殴った/クリックしたエンティティ探査(進捗+二分探査)](#2.12)  
  2.21. [角をすり抜けない視線先ブロック探査(functionループ)](#2.21)  
- 2.22. [ヒットボックス準拠の視線先エンティティ探査(functionループ)](#2.22)  
- 2.23. [ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ)](#2.23)  
+ 2.22. [かなり正確な視線先ブロック探査(functionループ)](#2.22)  
+ 2.23. [ヒットボックス準拠の視線先エンティティ探査(functionループ)](#2.23)  
+ 2.24. [ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ)](#2.24)  
  2.31. [text_displayと視点探査を活用したディスプレイ](#2.31)  
 3. [**システム**](#3)  
  3.11 [ルートテーブルを使ったブロック名取得](#3.11)  
@@ -115,7 +116,7 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 
 ---
 <a id="2.21"></a>
-### 2.21 角をすり抜けない視線先ブロック探査 / block_exploration  
+### 2.21 角をすり抜けない視線先ブロック探査 / block_exploration01  
 
 ![block_exploration](https://user-images.githubusercontent.com/60039093/221375086-7ee6e56d-e221-496c-97b4-f775cfbd23a6.gif)  
 ▲動作の様子  
@@ -124,17 +125,37 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 角をすり抜けない視線先ブロック探査。直線状に探査点を増やすやり方だとどうしてもすり抜けてしまった角をすり抜けないように探査できる。functionループで探査することは変わらないが、視線上だけではない計8方向に手を伸ばしてチェックすることで角抜けがなくなる。しかしブロックの判定が0.01m程大きくなるので、どちらを使うかは用途次第。  
 
 **■[使い方/How to use]**  
-`221_block_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`221_block_exploration01`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
 `point.mcfunction`の中身が探査終了点で実行されるので、好きなように書き換えて使用可能。  
 
 ▼常時実行ファンクションの実行例  
-`execute as @p at @s run function 221_block_exploration:root` 
+`execute as @p at @s run function 221_block_exploration01:root` 
 
 (2023/02/26):追加  
+(2023/03/05):番号を変更  
 
 ---
 <a id="2.22"></a>
-### 2.22 ヒットボックス準拠の視線先エンティティ探査(functionループ) / entity_exploration  
+### 2.22 かなり正確な視線先ブロック探査 / block_exploration02  
+
+ ![block_exploration02](https://user-images.githubusercontent.com/60039093/222947963-6a2089ba-d656-4bb0-b943-ed5d6a5bbfcf.gif)  
+▲動作の様子(青いパーティクルがプレイヤーが見ている面)  
+
+**■[説明/Description]**  
+かなり正確になった視線先ブロック探査。基本的なループの原理は前項と同じだが、3エンティティを追加し、functionループ中の探査点角度に依存した探査点の増加と、視線がどのブロック面内を見ているかどうかの判定をexecute幾何学などを利用して行っている。これらによってかなり正確になり、前項にあった当たり判定の増加のような挙動はほぼなくなる。ただ、エンティティ3体を使用しており前項よりは負荷がわずかに高いので、なにを使うかは用途次第。
+
+**■[使い方/How to use]**  
+`222_block_exploration02`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`point.mcfunction`の中身が探査終了点で実行されるので、好きなように書き換えて使用可能。  
+
+▼常時実行ファンクションの実行例  
+`execute as @p at @s run function 222_block_exploration02:root` 
+
+(2023/03/05):追加  
+
+---
+<a id="2.23"></a>
+### 2.23 ヒットボックス準拠の視線先エンティティ探査(functionループ) / entity_exploration  
 
 ![entity_exploration](https://user-images.githubusercontent.com/60039093/221410523-58b62fe0-f262-49cb-a4d7-7e7d4920d991.gif)  
 ▲動作の様子  
@@ -143,17 +164,18 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 誤差の少ない視線先エンティティ探査。直線状に探査点を増やすやり方だとすり抜けてしまったり、execute幾何学を使うやり方だと形状によってうまく探査できないが、四角形の判定を用いてfunctionループ探査をすることで誤差を少なくして探査できる。こちらも判定は0.01m程大きくなるので、どちらを使うかは用途次第。functionループなので、前項のブロック探査と組み合わせることが可能(後述)。  
 
 **■[使い方/How to use]**  
-`222_entity_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`223_entity_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
 `targets.mcfunction`の中身が探査終了点で実行されるので、好きなように書き換えて使用可能。対象になるエンティティには`targets`というタグが付与(複数になる可能あり)され、そのfunction内で参照可能。  
 
 ▼常時実行ファンクションの実行例  
-`execute as @p at @s run function 222_entity_exploration:root` 
+`execute as @p at @s run function 223_entity_exploration:root` 
 
 (2023/02/26):追加  
+(2023/03/05):番号を変更  
 
 ---
-<a id="2.23"></a>
-### 2.23 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
+<a id="2.24"></a>
+### 2.24 ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ) / exploration  
 
 ![exploration](https://user-images.githubusercontent.com/60039093/221410895-47fb3ff7-5cb2-4786-95f5-4eb6f4241e79.gif)  
 ▲動作の様子  
@@ -169,6 +191,7 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 `execute as @p at @s run function 224_exploration:root` 
 
 (2023/02/26):追加  
+(2023/03/05):番号を変更  
 
 ---
 <a id="2.31"></a>
