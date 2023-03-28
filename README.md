@@ -253,7 +253,7 @@ text_displayで作ったディスプレイと、それを利用したディス�
  
 **■[検証方法/method]**  
 ・ワールドボーダー式  
-マイクラは基本的に1tick(1/20秒)が時間の単位になっているが、補完的に動作するものなどは1tick内でもリアルタイムで変化し続ける。ワールドボーダーは`/worldboarder set`や`/wrldboarder add`によって滑らかに大きさを変化させることができ、`/worldboarder get`によって現在の大きさを取得できるため、1tick内での経過時間の取得が可能になる。ただ、worldboarderの変化は1ms単位なので、1msより細かい時間の計測はできない。  
+マイクラは基本的に1tick(1/20秒)が時間の単位になっているが、補完的に動作するものなどは1tick内でもリアルタイムで変化し続ける。ワールドボーダーは`/worldboarder set`や`/worldboarder add`によって滑らかに大きさを変化させることができ、`/worldboarder get`によって現在の大きさを取得できるため、1tick内での経過時間の取得が可能になる。ただ、worldboarderの変化は1ms単位なので、1msより細かい時間の計測はできない。  
 バグなのかわからないがこれを常時実行すると安全圏にいるのに画面が赤くなるので、あくまで検証用。  
 
 今回はこれを用い、何もないvoidのワールド上で検証用functionのみを導入した状態で検証をしている。
@@ -288,8 +288,8 @@ text_displayで作ったディスプレイと、それを利用したディス�
   コマンド実行数: 4万  
   実行コマンド: A:`execute as @e[tag=test]` vs B:`execute as @e[type=armor_stand,tag=test]`  
  [結果]  
-  A : 17~19ms  
-  B : 17~18ms  
+  A : 17\~19ms  
+  B : 17\~18ms  
   あまり変わらず。  
   
 2. 対象じゃないアマスタが多いとき  
@@ -298,9 +298,9 @@ text_displayで作ったディスプレイと、それを利用したディス�
   コマンド実行数: 4万  
   実行コマンド: A:`execute as @e[tag=test]` vs B:`execute as @e[type=armor_stand,tag=test]` vs C:`execute as @e[tag=test,type=armor_stand]`  
  [結果]  
-  A : 62~63ms  
-  B : 71~73ms  
-  C : 67~69ms  
+  A : 62\~63ms  
+  B : 71\~73ms  
+  C : 67\~69ms  
   type付の方が実行時間が長くなった。またtag引数とtype引数の順番でわずかに結果が変わった...  
   あまり変わらず。  
   
@@ -310,9 +310,9 @@ text_displayで作ったディスプレイと、それを利用したディス�
   コマンド実行数: 4万  
   実行コマンド: A:`execute as @e[tag=test]` vs B:`execute as @e[type=armor_stand,tag=test]` vs C:`execute as @e[tag=test,type=armor_stand]`  
  [結果]  
-  A : 69~70ms  
-  B : 23~25ms  
-  C : 22~23ms  
+  A : 69\~70ms  
+  B : 23\~25ms  
+  C : 22\~23ms  
   いや軽っ！心なしかtag引数が先の方が時間が短い気がしました。
  
 実際の環境ではおそらく同じエンティティばかりということはないので、これだけ差があるのならtypeは付けた方がいいかもしれませんね。
