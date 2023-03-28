@@ -19,10 +19,14 @@
  2.31. [text_displayと視点探査を活用したディスプレイ](#2.31)  
 3. [**システム**](#3)  
  3.11. [花/竹の位置計算](#3.11)
+4. [**負荷検証**](#4)
+ 4.1 [type引数の有無](#4.1)
  
  
 <a id="1"></a>
 ## 1. 装飾品/decorations  
+　ブロックディスプレイ等で作れる装飾品の一例です。  
+  
 <a id="1.11"></a>
 ### 1.11 block_displayで作成したイス 1 / chair01  
 
@@ -62,6 +66,8 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 <a id="2"></a>
 ## 2. 検知・探査/Detection&Exploretion  
+　検知や探査といったゲーム制作などで便利そうなコマンドのメモです。  
+ 
 <a id="2.11"></a>
 ### 2.11 殴った/クリックしたエンティティ探査(進捗+execute on) / entity_association01  
 
@@ -224,6 +230,8 @@ text_displayで作ったディスプレイと、それを利用したディス�
 
 <a id="3"></a>
 ## 3. システム/System
+　システム関連っぽいコマンドなどをまとめています。  
+ 
 <a id="3.11"></a>
 ### 3.11 花/竹の位置計算/ flower_position  
 
@@ -237,4 +245,77 @@ text_displayで作ったディスプレイと、それを利用したディス�
 `311_flower_position`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`get.mcfunction`を調べたい座標で実行する。応用時は適時中を書き換えてもらった方がいいです。
 
 (2023/03/28):追加  
+
+---
+
+<a id="4"></a>
+## 4. 負荷検証/benchmark  
+　個人的にどっちが軽いか気になったものについて、実際に調べてみた結果などのメモです。良ければ参考にどうぞ。
+ 
+**■[検証方法/method]**
+・ワールドボーダー式
+マイクラは基本的に1tick(1/20秒)が時間の単位になっているが、補完的に動作するものなどは1tick内でもリアルタイムで変化し続ける。ワールドボーダーは`/worldboarder set`や`/wrldboarder add`によって滑らかに大きさを変化させることができ、`/worldboarder get`によって現在の大きさを取得できるため、1tick内での経過時間の取得が可能になる。ただ、worldboarderの変化は1ms単位なので、1msより細かい時間の計測はできない。  
+バグなのかわからないがこれを常時実行すると安全圏にいるのに画面が赤くなるので、あくまで検証用。  
+
+今回はこれを用い、何もないvoidのワールド上で検証用functionのみを導入した状態で検証をしている。
+
+▼ワールドボーダー式の実行例
+```benchmark.mcfunction
+## 開始
+ # ワールドボーダーの位置をリセット
+ worldboarder set 1000 0
+ # ワールドボーダーを1000m/sで動かす
+ worldboarder add 1000 1
+
+## 中身
+# 検証したいコマンドを実行する
+
+## 終了
+ # ワールドボーダーのサイズを取得
+ execute store result score _ _ run worldboarder get
+ # スタートから変化した量を取得
+ scoreboard players remove _ _ 1000
+ # 表示
+ title @a actionbar {"translate":"%s ms","with":[{"score":{"name": "_","objective": "_"}}]}
+```
+
+---
+### 4.1 type引数の有無  
+セレクタにあるtype引数の有無による負荷検証。一般的にtypeを指定するとだいぶ軽くなるらしいけどどのくらいだろうか。  
+
+1. エンティティが全くいないとき  
+ [条件]  
+  エンティティ: タグ付きアマスタ1体  
+  コマンド実行数: 4万  
+  実行コマンド: A:`execute as @e[tag=test]` vs B:`execute as @e[type=armor_stand,tag=test]`  
+ [結果]  
+  A : 17~19ms  
+  B : 17~18ms  
+  あまり変わらず。  
+  
+2. 対象じゃないアマスタが多いとき  
+ [条件]  
+  エンティティ: タグ付きアマスタ1体とタグ無しアマスタ50体  
+  コマンド実行数: 4万  
+  実行コマンド: A:`execute as @e[tag=test]` vs B:`execute as @e[type=armor_stand,tag=test]` vs C:`execute as @e[tag=test,type=armor_stand]`  
+ [結果]  
+  A : 62~63ms  
+  B : 71~73ms  
+  C : 67~69ms  
+  type付の方が実行時間が長くなった。またtag引数とtype引数の順番でわずかに結果が変わった...  
+  あまり変わらず。  
+  
+3. アマスタ以外のエンティティが多いとき  
+ [条件]  
+  エンティティ: タグ付きアマスタ1体とタグ無しNoAI村人50体  
+  コマンド実行数: 4万  
+  実行コマンド: A:`execute as @e[tag=test]` vs B:`execute as @e[type=armor_stand,tag=test]` vs C:`execute as @e[tag=test,type=armor_stand]`  
+ [結果]  
+  A : 69~70ms  
+  B : 23~25ms  
+  C : 22~23ms  
+  いや軽っ！心なしかtag引数が先の方が時間が短い気がしました。
+ 
+実際の環境ではおそらく同じエンティティばかりということはないので、これだけ差があるのならtypeは付けた方がいいかもしれませんね。
+
 
