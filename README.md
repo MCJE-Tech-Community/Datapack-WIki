@@ -299,6 +299,8 @@ text_displayで作ったディスプレイと、それを利用したディス�
  title @a actionbar {"translate":"%s ms","with":[{"score":{"name": "_","objective": "_"}}]}
 ```
 
+[[目次へ戻る]](#summary)  
+
 ---
 ### 4.1 type引数の有無  
 セレクタにあるtype引数の有無による負荷検証。一般的にtypeを指定するとだいぶ軽くなるらしいけどどのくらいだろうか。JE 23w12a(1.20のスナショ)で検証  
