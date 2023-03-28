@@ -17,6 +17,8 @@
  2.23. [ヒットボックス準拠の視線先エンティティ探査(functionループ)](#2.23)  
  2.24. [ブロック探査とエンティティ探査を組み合わせた視線先探査(functionループ)](#2.24)  
  2.31. [text_displayと視点探査を活用したディスプレイ](#2.31)  
+3. [**システム**](#3)  
+ 3.11. [花/竹の位置計算](#3.11)
  
  
 <a id="1"></a>
@@ -217,3 +219,22 @@ text_displayで作ったディスプレイと、それを利用したディス�
 3. `execute as @e[tag=display_00] if entity @p[distance=..10] run function ****:****/031_display/tick`  
 
 (2023/02/21):追加  
+
+---
+
+<a id="3"></a>
+## 3. システム/System
+<a id="3.11"></a>
+### 3.11 花/竹の位置計算/ flower_position  
+
+![flower_position](https://user-images.githubusercontent.com/60039093/228248411-1e3e359c-fa30-4cb4-83a1-6a01d66767b8.gif)  
+▲動作の様子  
+
+**■[説明/Description]**  
+花や竹などは1ブロック内のどの位置に設置されるかというのがx座標とz座標をもとにした疑似乱数によって決まっている。ソースコードを覗くとその計算式を見る事ができるので(intsucさんが見つけ出してくれました。感謝。[twitter](https://twitter.com/intsuc/status/1632959490386706437?s=20))、それをもとにマイクラ上で計算するfunction。複雑な計算ではないが排他的論理和の計算だけちょっと面倒かもしれない。
+
+**■[使い方/How to use]**  
+`311_flower_position`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`get.mcfunction`を調べたい座標で実行する。応用時は適時中を書き換えてもらった方がいいです。
+
+(2023/03/28):追加  
+
