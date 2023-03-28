@@ -309,7 +309,9 @@ text_displayで作ったディスプレイと、それを利用したディス�
  [条件]  
   エンティティ: タグ付きアマスタ1体  
   コマンド実行数: 4万  
-  実行コマンド: A:`execute if entity @e[tag=test]` vs B:`execute if entity @e[type=armor_stand,tag=test]`  
+  実行コマンド:  
+  　　A:`execute if entity @e[tag=test]`  
+  　　B:`execute if entity @e[type=armor_stand,tag=test]`  
  [結果]  
   A : **17\~19ms**  
   B : **17\~18ms**  
@@ -319,7 +321,10 @@ text_displayで作ったディスプレイと、それを利用したディス�
  [条件]  
   エンティティ: タグ付きアマスタ1体とタグ無しアマスタ50体  
   コマンド実行数: 4万  
-  実行コマンド: A:`execute if entity @e[tag=test]` vs B:`execute if entity @e[type=armor_stand,tag=test]` vs C:`execute if entity @e[tag=test,type=armor_stand]`  
+  実行コマンド:   
+  　　A:`execute if entity @e[tag=test]`  
+  　　B:`execute if entity @e[type=armor_stand,tag=test]`  
+  　　C:`execute if entity @e[tag=test,type=armor_stand]`  
  [結果]  
   A : **62\~63ms**  
   B : **71\~73ms**  
@@ -330,7 +335,10 @@ text_displayで作ったディスプレイと、それを利用したディス�
  [条件]  
   エンティティ: タグ付きアマスタ1体とタグ無しNoAI村人50体  
   コマンド実行数: 4万  
-  実行コマンド: A:`execute if entity @e[tag=test]` vs B:`execute if entity @e[type=armor_stand,tag=test]` vs C:`execute if entity @e[tag=test,type=armor_stand]`  
+  実行コマンド:  
+  　　A:`execute if entity @e[tag=test]`  
+  　　B:`execute if entity @e[type=armor_stand,tag=test]`  
+  　　C:`execute if entity @e[tag=test,type=armor_stand]`  
  [結果]  
   A : **69\~70ms**  
   B : **23\~25ms**  
