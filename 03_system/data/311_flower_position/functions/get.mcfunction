@@ -23,7 +23,6 @@
         # スコア初期化
         scoreboard players set #seed _ 0
         scoreboard players set _ _ 2
-        # 累乗の計算
         # 1bit分ずつ
         execute if score #x _ matches ..-1 if score #z _ matches 0.. run scoreboard players add #seed _ 134217728
         execute if score #x _ matches 0.. if score #z _ matches ..-1 run scoreboard players add #seed _ 134217728
