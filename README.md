@@ -6,8 +6,8 @@
 - バグや改善案などがあれば好きなだけissueを立ててもらって構いません(あと英単語とか)。時間があれば対処します。
 
 # 解説Wiki
-### コマンドの解説 https://github.com/RuskEocssar/Minecraft-JE-Command-Note/wiki
-github wikiに、ここで掲載しているコマンドも含めいろいろと技術的な解説を載せています。
+### コマンドの解説 https://github.com/MCJE-Tech-Shares/Minecraft-JE-Technical-Note/wiki  
+github wikiに、ここで掲載しているコマンドも含めいろいろと技術的な解説を載せています。  
 
 # 配布物
 ## 目次/summary <a id="summary"></a>
