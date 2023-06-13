@@ -110,4 +110,4 @@ summon zombie ~ ~ ~ {Tags:[B]}
 summon zombie ~ ~ ~ {Tags:[B]}
 
 scoreboard players set @e[tag=A] A 1
-scoreboard players set @e[tag=A] A 0
+scoreboard players set @e[tag=B] A 0
