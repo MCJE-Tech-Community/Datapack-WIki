@@ -1,0 +1,1 @@
+execute if entity @e[type=armor_stand]

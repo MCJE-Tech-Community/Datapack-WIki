@@ -1,0 +1,1 @@
+execute if entity @e[tag=A]

@@ -1,0 +1,36 @@
+{
+  "mch_version": "0.11.0",
+  "forks": 3,
+  "jvm": "C:\\Program Files\\Java\\jdk-17\\bin\\java.exe",
+  "jvm_args": [],
+  "jdk_version": "17.0.7",
+  "vm_name": "Java HotSpot(TM) 64-Bit Server VM",
+  "vm_version": "17.0.7+8-LTS-224",
+  "mc": "server.jar",
+  "mc_args": [
+    "nogui"
+  ],
+  "mc_version": "1.20",
+  "warmup_iterations": 5,
+  "warmup_time": "5 s",
+  "measurement_iterations": 5,
+  "measurement_time": "5 s",
+  "results": [
+    {
+      "benchmark": "debug:baseline",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.22817677453860782,
+      "error": 0.0033511466250693966,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "debug:01_entity/002/a",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.7905416551926445,
+      "error": 0.015124544733848807,
+      "unit": "us/op"
+    }
+  ]
+}
