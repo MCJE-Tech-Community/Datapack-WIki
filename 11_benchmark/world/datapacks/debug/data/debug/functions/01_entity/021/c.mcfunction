@@ -1,1 +1,0 @@
-execute if entity @e[type=area_effect_cloud]

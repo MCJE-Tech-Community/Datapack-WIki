@@ -1,1 +1,5 @@
-{"values":["debug:01_entity/031/setup"]}
+{
+    "values":[
+        "debug:setup.trial"
+    ]
+}

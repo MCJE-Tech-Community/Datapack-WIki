@@ -1,1 +1,0 @@
-summon zombie ~ ~ ~ {Tags:[A]}

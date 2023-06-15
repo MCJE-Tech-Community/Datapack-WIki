@@ -1,0 +1,100 @@
+{
+  "mch_version": "0.11.0",
+  "forks": 3,
+  "jvm": "C:\\Program Files\\Java\\jdk-17\\bin\\java.exe",
+  "jvm_args": [],
+  "jdk_version": "17.0.7",
+  "vm_name": "Java HotSpot(TM) 64-Bit Server VM",
+  "vm_version": "17.0.7+8-LTS-224",
+  "mc": "server.jar",
+  "mc_args": [
+    "nogui"
+  ],
+  "mc_version": "1.20",
+  "warmup_iterations": 5,
+  "warmup_time": "5 s",
+  "measurement_iterations": 5,
+  "measurement_time": "5 s",
+  "results": [
+    {
+      "benchmark": "mch:a",
+      "mode": "execute",
+      "count": 15,
+      "score": 6.05185079792334,
+      "error": 0.10897996715988016,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:b",
+      "mode": "execute",
+      "count": 15,
+      "score": 52.638169946010116,
+      "error": 0.9464024551305921,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:c",
+      "mode": "execute",
+      "count": 15,
+      "score": 5.711557103186888,
+      "error": 0.13753054168300768,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:d",
+      "mode": "execute",
+      "count": 15,
+      "score": 3.2797029250067236,
+      "error": 0.04212326416491082,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:e",
+      "mode": "execute",
+      "count": 15,
+      "score": 9.277684406521187,
+      "error": 0.13863482047183628,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:f",
+      "mode": "execute",
+      "count": 15,
+      "score": 9.434833266913255,
+      "error": 0.34980561742330796,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:g",
+      "mode": "execute",
+      "count": 15,
+      "score": 11.898442073390232,
+      "error": 0.31827720288606887,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:h",
+      "mode": "execute",
+      "count": 15,
+      "score": 2.3692441903351487,
+      "error": 0.09089753216205326,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:i",
+      "mode": "execute",
+      "count": 15,
+      "score": 2.9855447311967125,
+      "error": 0.16441783985763767,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "debug:baseline",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.22674253442422426,
+      "error": 0.0022775442930806286,
+      "unit": "us/op"
+    }
+  ]
+}

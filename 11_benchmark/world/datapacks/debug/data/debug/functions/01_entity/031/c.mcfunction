@@ -1,1 +1,0 @@
-execute if entity @e[nbt={CanBreakDoors:1b}]

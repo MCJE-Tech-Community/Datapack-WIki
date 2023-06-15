@@ -1,1 +1,0 @@
-execute if entity @e[nbt={HandItems:[{tag:{A:1b}}]}]

@@ -1,0 +1,124 @@
+{
+  "mch_version": "0.11.0",
+  "forks": 3,
+  "jvm": "C:\\Program Files\\Java\\jdk-17\\bin\\java.exe",
+  "jvm_args": [],
+  "jdk_version": "17.0.7",
+  "vm_name": "Java HotSpot(TM) 64-Bit Server VM",
+  "vm_version": "17.0.7+8-LTS-224",
+  "mc": "server.jar",
+  "mc_args": [
+    "nogui"
+  ],
+  "mc_version": "1.20",
+  "warmup_iterations": 5,
+  "warmup_time": "5 s",
+  "measurement_iterations": 5,
+  "measurement_time": "5 s",
+  "results": [
+    {
+      "benchmark": "mch:a",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.9620701346894787,
+      "error": 0.004893805053284491,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:b",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.9802411797495636,
+      "error": 0.015227617454375762,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:c",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.9910827296463744,
+      "error": 0.016353944131569924,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:d",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.9674698206965441,
+      "error": 0.013817961083164397,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:e",
+      "mode": "execute",
+      "count": 15,
+      "score": 1.0135829449854317,
+      "error": 0.014198328330534112,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:f",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.9697495587612697,
+      "error": 0.005804680357926631,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:g",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.9744986549983766,
+      "error": 0.006712733279014312,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:h",
+      "mode": "execute",
+      "count": 15,
+      "score": 1.14749816850021,
+      "error": 0.032964920303839004,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:i",
+      "mode": "execute",
+      "count": 15,
+      "score": 1.3265581722977302,
+      "error": 0.02541657484257625,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:j",
+      "mode": "execute",
+      "count": 15,
+      "score": 1.0136105300168634,
+      "error": 0.01815195663339177,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:k",
+      "mode": "execute",
+      "count": 15,
+      "score": 1.4417114553371253,
+      "error": 0.03163026713243471,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "mch:l",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.9863270808953222,
+      "error": 0.015717162478772785,
+      "unit": "us/op"
+    },
+    {
+      "benchmark": "debug:baseline",
+      "mode": "execute",
+      "count": 15,
+      "score": 0.2273492400865749,
+      "error": 0.0024542846514916013,
+      "unit": "us/op"
+    }
+  ]
+}

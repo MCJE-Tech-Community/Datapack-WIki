@@ -1,1 +1,0 @@
-execute if entity @e[type=item_display]
