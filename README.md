@@ -88,7 +88,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 - execute onの判定は数秒残るようなので、一度プレイヤーに殴られたモブが、プレイヤーが別のモブを殴るときと同時に別の方法でダメージを受けたとき(落下など)は誤作動を起こす可能性がある。あんまり起きないとは思うけど。  
 
 **■[使い方/How to use]**  
-`211_entity_association01`を`data/`直下などに入れ初期設定:`init.mcfunction`を実行したら、あとは適当にモブを殴ったりinteractionを右/左クリックしたりするとエンティティの位置でパーティクルが出る。  
+`111_entity_association01`を`data/`直下などに入れ初期設定:`init.mcfunction`を実行したら、あとは適当にモブを殴ったりinteractionを右/左クリックしたりするとエンティティの位置でパーティクルが出る。  
 `attack_mob.mcfunction`,`attack_interaction.mcfunction`,`interact_interaction.mcfunction`の中をいじれば実行コマンドを変えられる。  
 
 (2023/02/23):追加  
@@ -117,11 +117,11 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 事前に二進数化したidが付与されたエンティティを、ビット毎に用意されたcriteriaで解除状況と比較して探査を行う。  
 
 **■[使い方/How to use]**  
-`212_entity_association02`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行しid付与:`id.mcfunction`を対象にしたいエンティティを実行者にして実行する。  
+`112_entity_association02`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行しid付与:`id.mcfunction`を対象にしたいエンティティを実行者にして実行する。  
 `attack.mcfunction`,`interaction.mcfunction`の中をいじれば実行コマンドを変えられる。階層やフォルダ名を変えると変更点が多くなるので注意。  
 
 ▼id付与ファンクションの実行例  
- `execute as @e[type=!player,distance=..10] run function 212_entity_association02:id`  
+ `execute as @e[type=!player,distance=..10] run function 112_entity_association02:id`  
 
 (2023/02/23):追加  
 
@@ -181,11 +181,11 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 誤差の少ない視線先エンティティ探査。直線状に探査点を増やすやり方だとすり抜けてしまったり、execute幾何学を使うやり方だと形状によってうまく探査できないが、四角形の判定を用いてfunctionループ探査をすることで誤差を少なくして探査できる。こちらも判定は0.01m程大きくなるので、どちらを使うかは用途次第。functionループなので、前項のブロック探査と組み合わせることが可能(後述)。  
 
 **■[使い方/How to use]**  
-`223_entity_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`123_entity_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
 `targets.mcfunction`の中身が探査終了点で実行されるので、好きなように書き換えて使用可能。対象になるエンティティには`targets`というタグが付与(複数になる可能あり)され、そのfunction内で参照可能。  
 
 ▼常時実行ファンクションの実行例  
-`execute as @p at @s run function 223_entity_exploration:root` 
+`execute as @p at @s run function 123_entity_exploration:root` 
 
 (2023/02/26):追加  
 (2023/03/05):番号を変更  
@@ -203,11 +203,11 @@ Chen氏の改良案をもとにrequirments周りを改良してます。~~あり
 前項2つのブロック探査とエンティティ探査を組み合わせたコマンド。これによって、ブロックが手前にあったらエンティティが探査されないような、より直感的なシステムが作成可能。  
 
 **■[使い方/How to use]**  
-`224_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
+`124_exploration`フォルダを`data/`直下などに入れ、初期設定:`init.mcfunction`を実行したら常時実行:`root.mcfunction`を視線探査の起点にしたいエンティティを実行者として常時実行する。
 `targets.mcfunction`の中身がエンティティ探査終了点で実行され、`point.mcfunction`の中身がブロック探査終了点で実行されるので、好きなように書き換えて使用可能。対象になるエンティティには`targets`というタグが付与(複数になる可能あり)され、そのfunction内で参照可能。  
 
 ▼常時実行ファンクションの実行例  
-`execute as @p at @s run function 224_exploration:root` 
+`execute as @p at @s run function 124_exploration:root` 
 
 (2023/02/26):追加  
 (2023/03/05):番号を変更  

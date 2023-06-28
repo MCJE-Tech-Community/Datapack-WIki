@@ -1,0 +1,15 @@
+{
+    "criteria": {
+        "attack": {
+            "trigger": "minecraft:player_hurt_entity",
+            "conditions": {
+                "entity": {
+                    "type": "minecraft:interaction"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "111_entity_association01:attacked_interaction"
+    }
+}

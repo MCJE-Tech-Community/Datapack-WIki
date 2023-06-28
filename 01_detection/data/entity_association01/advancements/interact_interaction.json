@@ -1,0 +1,15 @@
+{
+    "criteria": {
+        "attack": {
+            "trigger": "minecraft:player_interacted_with_entity",
+            "conditions": {
+                "entity": {
+                    "type": "minecraft:interaction"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "111_entity_association01:interacted_interaction"
+    }
+}
