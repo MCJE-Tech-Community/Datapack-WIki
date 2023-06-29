@@ -8,11 +8,11 @@ execute unless entity 4fe002bb-0-0-0-1 run summon marker ~ ~ ~ {Tags:[blmo,blmo_
 execute unless entity 4fe002bb-0-0-0-2 run summon marker ~ ~ ~ {Tags:[blmo,blmo_pos,blmo_pos2],UUID:[I;1340080827,0,0,2]}
 execute unless entity 4fe002bb-0-0-0-3 run summon marker ~ ~ ~ {Tags:[blmo,blmo_pos,blmo_pos3],UUID:[I;1340080827,0,0,3]}
 # エンティティ1をプレイヤーの視線をx軸で反転させた角度にする
-execute positioned 0.0 0.0 0.0 positioned ^ ^ ^2 positioned 0.0 ~ ~ positioned ^ ^ ^-1 facing 0.0 0.0 0.0 positioned as @s run tp 0-0-0-0-1000000de ~ ~ ~ ~ ~
+execute positioned 0.0 0.0 0.0 positioned ^ ^ ^2 positioned 0.0 ~ ~ positioned ^ ^ ^-1 facing 0.0 0.0 0.0 positioned as @s run tp 4fe002bb-0-0-0-1 ~ ~ ~ ~ ~
 # エンティティ2をプレイヤーの角度のxy成分の角度にする
-execute positioned 0.0 0.0 0.0 positioned ^ ^ ^-1 facing 0.0 0.0 ~ positioned as @s run tp 0-0-0-0-2000000de ~ ~ ~ ~ ~
+execute positioned 0.0 0.0 0.0 positioned ^ ^ ^-1 facing 0.0 0.0 ~ positioned as @s run tp 4fe002bb-0-0-0-2 ~ ~ ~ ~ ~
 # エンティティ3をプレイヤーの角度のzy成分の角度にする
-execute positioned 0.0 0.0 0.0 positioned ^ ^ ^-1 facing ~ 0.0 0.0 positioned as @s run tp 0-0-0-0-3000000de ~ ~ ~ ~ ~
+execute positioned 0.0 0.0 0.0 positioned ^ ^ ^-1 facing ~ 0.0 0.0 positioned as @s run tp 4fe002bb-0-0-0-3 ~ ~ ~ ~ ~
 
 ## ループの開始
 # 探査距離の上限 m
