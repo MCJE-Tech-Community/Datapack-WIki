@@ -5,6 +5,6 @@
         }
     },
     "rewards": {
-        "function": "111_entity_association01:attacked_mob"
+        "function": "entity_association01:attacked_mob"
     }
 }

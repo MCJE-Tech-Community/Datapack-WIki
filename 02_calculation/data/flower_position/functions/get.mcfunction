@@ -1,13 +1,12 @@
-#> 211_flowr_position:get
+#> flower_position:get
 ### 実行点の位置の花/竹等の位置を計算する
 
 ## 実行点の座標を取得
     # マーカー召喚
-    execute unless entity 0-0-0-0-1000000d3 run summon item_display ~ ~ ~ {UUID:[I;0,0,1,211],item:{id:"glass",Count:1b},transformation:[0.375f,0f,0f,0f, 0f,0.625f,0f,0.3125f, 0f,0f,0.375f,0f, 0f,0f,0f,1f,]}
-    # 
-    execute align xyz run tp 0-0-0-0-1000000d3 ~0.5 ~ ~0.5
+    execute unless entity 4fe002bb-0-0-0-1 run summon item_display ~ ~ ~ {UUID:[I;1340080827,0,0,1],item:{id:"glass",Count:1b},transformation:[0.375f,0f,0f,0f, 0f,0.625f,0f,0.3125f, 0f,0f,0.375f,0f, 0f,0f,0f,1f,]}
+    execute align xyz run tp 4fe002bb-0-0-0-1 ~0.5 ~ ~0.5
     # 座標をストレージに保存
-    data modify storage _ pos set from entity 0-0-0-0-1000000d3 Pos
+    data modify storage _ pos set from entity 4fe002bb-0-0-0-1 Pos
 
 ## シードの計算
 # 最終的に下位28bit以内しか見ないのでオーバーフローしてても気にしない
@@ -147,7 +146,7 @@
         execute store result storage _ pos[2] float 0.00001 run scoreboard players get #z _
     #title @s actionbar {"translate":"(%s,%s)","with":[{"nbt":"pos[0]","storage":"_"},{"nbt":"pos[2]","storage":"_"}]}
     # 反映
-    data modify entity 0-0-0-0-1000000d3 transformation.translation set from storage _ pos
+    data modify entity 4fe002bb-0-0-0-1 transformation.translation set from storage _ pos
     # スコアホルダーの削除
     scoreboard players reset #x
     scoreboard players reset #z

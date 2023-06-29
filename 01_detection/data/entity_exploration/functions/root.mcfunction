@@ -8,14 +8,14 @@ tag @e[tag=02_glow] remove 02_glow
 
 ## ループの開始
 # 探査距離の上限 m
-scoreboard players set #02:loop _ 25
+scoreboard players set #loop _ 25
 
 # 自身を除外するためのタグ
 tag @s add root
 
 # ループの開始
 # プレイヤーから実行する前提でanchoredがついているので注意
-execute anchored eyes positioned ^ ^ ^0.5 run function 123_entity_exploration:1
+execute anchored eyes positioned ^ ^ ^0.5 run function entity_exploration:1
 
 # タグ削除
 tag @s remove root

@@ -10,6 +10,6 @@
         }
     },
     "rewards": {
-        "function": "111_entity_association01:attacked_interaction"
+        "function": "entity_association01:attacked_interaction"
     }
 }

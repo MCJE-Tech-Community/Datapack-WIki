@@ -21,10 +21,10 @@ execute unless entity @s[y_rotation=-90..90] if score @s _ matches 1..2 if block
 # xz上面
 scoreboard players set @s _ 0
 # 何本の辺に対して上を向いているかをカウント
-execute align xyz positioned ~ ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s positioned ^ ^ ^-1000 rotated as 0-0-0-0-2000000de positioned ^ ^-1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
-execute align xyz positioned ~1 ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s positioned ^ ^ ^-1000 rotated as 0-0-0-0-2000000de positioned ^ ^-1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
-execute align xyz positioned ~ ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s positioned ^ ^ ^-1000 rotated as 0-0-0-0-3000000de positioned ^ ^-1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
-execute align xyz positioned ~ ~1 ~1 facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s positioned ^ ^ ^-1000 rotated as 0-0-0-0-3000000de positioned ^ ^-1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
+execute align xyz positioned ~ ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s positioned ^ ^ ^-1000 rotated as 4fe002bb-0-0-0-2 positioned ^ ^-1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
+execute align xyz positioned ~1 ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s positioned ^ ^ ^-1000 rotated as 4fe002bb-0-0-0-2 positioned ^ ^-1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
+execute align xyz positioned ~ ~1 ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s positioned ^ ^ ^-1000 rotated as 4fe002bb-0-0-0-3 positioned ^ ^-1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
+execute align xyz positioned ~ ~1 ~1 facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s positioned ^ ^ ^-1000 rotated as 4fe002bb-0-0-0-3 positioned ^ ^-1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
 # 角度と数をもとに面を取得 
 execute if entity @s[x_rotation=-180..0,scores={_=3..}] run scoreboard players set #face _ 0
 execute if entity @s[x_rotation=0..180,scores={_=3..}] run scoreboard players set #face _ 0
@@ -33,10 +33,10 @@ execute if entity @s[x_rotation=0..180,scores={_=2}] if block ~ ~1 ~ #block_expl
 # xz下面
 scoreboard players set @s _ 0
 # 何本の辺に対して下を向いているかをカウント
-execute align xyz positioned ~ ~ ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s positioned ^ ^ ^-1000 rotated as 0-0-0-0-2000000de positioned ^ ^1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
-execute align xyz positioned ~1 ~ ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s positioned ^ ^ ^-1000 rotated as 0-0-0-0-2000000de positioned ^ ^1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
-execute align xyz positioned ~ ~ ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s positioned ^ ^ ^-1000 rotated as 0-0-0-0-3000000de positioned ^ ^1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
-execute align xyz positioned ~ ~ ~1 facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s positioned ^ ^ ^-1000 rotated as 0-0-0-0-3000000de positioned ^ ^1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
+execute align xyz positioned ~ ~ ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s positioned ^ ^ ^-1000 rotated as 4fe002bb-0-0-0-2 positioned ^ ^1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
+execute align xyz positioned ~1 ~ ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing 0.0 0.0 ~ positioned as @s positioned ^ ^ ^-1000 rotated as 4fe002bb-0-0-0-2 positioned ^ ^1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
+execute align xyz positioned ~ ~ ~ facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s positioned ^ ^ ^-1000 rotated as 4fe002bb-0-0-0-3 positioned ^ ^1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
+execute align xyz positioned ~ ~ ~1 facing entity @s eyes positioned 0.0 0.0 0.0 positioned ^ ^ ^1 facing ~ 0.0 0.0 positioned as @s positioned ^ ^ ^-1000 rotated as 4fe002bb-0-0-0-3 positioned ^ ^1000 ^1000 if entity @s[distance=..1000] run scoreboard players add @s _ 1
 # 角度と数をもとに面を取得 
 execute if entity @s[x_rotation=0..180,scores={_=3..}] run scoreboard players set #face _ 0
 execute if entity @s[x_rotation=-180..0,scores={_=3..}] run scoreboard players set #face _ 0

@@ -6,16 +6,16 @@
 # このコマンドを、プレイヤーを実行者として常時実行しても動作する
 
 ## 攻撃先のエンティティの検索
-# on attackerでは直接の検索ができないので、storeを活用してエンティティを絞る
-tag @s add _
-execute as @e[distance=..100,nbt={HurtTime:10s}] store success score @s _ on attacker if entity @s[tag=_]
-execute as @e[distance=..100,nbt={HurtTime:10s},scores={_=1}] run tag @s add attacked
+    # on attackerでは直接の検索ができないので、storeを活用してエンティティを絞る
+    tag @s add _
+    execute as @e[distance=..100,nbt={HurtTime:10s}] store success score @s _ on attacker if entity @s[tag=_]
+    execute as @e[distance=..100,nbt={HurtTime:10s},scores={_=1}] run tag @s add attacked
 
 ## イベントの実行
-# tag=attackedを持つエンティティが対象
-execute at @e[tag=attacked] run particle angry_villager ~ ~1.2 ~ 0 0 0 0 1
+    # tag=attackedを持つエンティティが対象
+    execute at @e[tag=attacked] run particle angry_villager ~ ~1.2 ~ 0 0 0 0 1
 
 ## タグ/進捗の解除
-tag @s remove _
-tag @e[tag=attacked] remove attacked
-advancement revoke @s only 111_entity_association01:attack_mob
+    tag @s remove _
+    tag @e[tag=attacked] remove attacked
+    advancement revoke @s only entity_association01:attack_mob
