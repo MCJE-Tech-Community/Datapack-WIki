@@ -38,7 +38,7 @@ jobs:
       - name: ベンチマーク結果のアップロード
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ inputs.version }}
+          name: ${{ steps.minecraft.outputs.version }}
           if-no-files-found: error
           path: |
             11_benchmark/actions/mch-results.json
