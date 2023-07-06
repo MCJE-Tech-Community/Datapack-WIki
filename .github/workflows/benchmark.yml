@@ -1,0 +1,45 @@
+name: ベンチマーク
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        description: "ベンチマークを実行するMinecraftのバージョン"
+        required: false
+        default: "release"
+      benchmarks:
+        type: string
+        description: "ベンチマークを実行するデータパックの名前のリスト(,区切り)"
+        required: true
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v3
+      - name: Javaのセットアップ
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "17"
+      - name: Minecraftのセットアップ
+        id: minecraft
+        uses: mcenv/setup-minecraft@v3
+        with:
+          version: ${{ inputs.version }}
+      - name: ベンチマーク
+        run: |
+          cd 11_benchmark/actions
+          curl -L -o mch.jar https://github.com/mcenv/mch/releases/download/v0.13.1/mch.jar
+          java -jar mch.jar --mc=$MINECRAFT --function_benchmarks=${{ inputs.benchmarks }}
+          cat mch-results.md >> $GITHUB_STEP_SUMMARY
+      - name: ベンチマーク結果のアップロード
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.minecraft.outputs.version }}
+          if-no-files-found: error
+          path: |
+            11_benchmark/actions/mch-results.json
+            11_benchmark/actions/mch-results.md
