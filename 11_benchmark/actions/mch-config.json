@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mcenv/mch/main/mch-config-schema.json",
+  "warmup_iterations": 2,
+  "measurement_iterations": 2,
+  "time": 1,
+  "forks": 2,
+  "time_unit": "us",
+  "formats": [
+    "json",
+    "md"
+  ]
+}
