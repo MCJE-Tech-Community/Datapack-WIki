@@ -1,0 +1,1 @@
+scoreboard objectives add scoreboard_arithmetic dummy
