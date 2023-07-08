@@ -32,7 +32,7 @@ jobs:
       - name: ベンチマーク
         run: |
           cd 11_benchmark/actions
-          curl -L -o mch.jar https://github.com/mcenv/mch/releases/download/v0.13.1/mch.jar
+          curl -L -o mch.jar https://github.com/mcenv/mch/releases/download/v0.14.0/mch.jar
           java -jar mch.jar --mc=$MINECRAFT --function_benchmarks=${{ inputs.benchmarks }}
           cat mch-results.md >> $GITHUB_STEP_SUMMARY
       - name: ベンチマーク結果のアップロード
