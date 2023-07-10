@@ -32,7 +32,7 @@ on:
         type: choice
         description: "Output time unit"
         required: false
-        default: s
+        default: us
         options: [ ns, us, ms, s, m ]
       jvm_args:
         type: string
