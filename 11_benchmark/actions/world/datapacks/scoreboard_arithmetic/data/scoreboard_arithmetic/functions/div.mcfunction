@@ -1,4 +1,4 @@
 #> scoreboard_arithmetic:div
 # @benchmark
 
-scoreboard players operation a scoreboard_arithmetic /= c scoreboard_arithmetic
+scoreboard players operation p scoreboard_arithmetic /= q scoreboard_arithmetic

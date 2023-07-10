@@ -1,4 +1,4 @@
 #> scoreboard_arithmetic:set
 # @benchmark
 
-scoreboard players operation a scoreboard_arithmetic = b scoreboard_arithmetic
+scoreboard players operation p scoreboard_arithmetic = q scoreboard_arithmetic
