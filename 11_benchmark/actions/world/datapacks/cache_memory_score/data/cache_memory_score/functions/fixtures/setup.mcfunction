@@ -1,1 +1,0 @@
-scoreboard objectives add cache_memory_score dummy
