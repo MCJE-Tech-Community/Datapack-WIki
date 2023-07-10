@@ -1,0 +1,43 @@
+#> cache_memory_score_add:eq_2
+# @benchmark
+
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0
+scoreboard players add p cache_memory_score_add 0

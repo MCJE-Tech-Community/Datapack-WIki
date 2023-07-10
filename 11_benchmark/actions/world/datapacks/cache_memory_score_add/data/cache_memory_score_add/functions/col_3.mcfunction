@@ -1,4 +1,4 @@
-#> cache_memory_score_add:col
+#> cache_memory_score_add:col_3
 # @benchmark
 
 scoreboard players add p cache_memory_score_add 0
@@ -41,3 +41,23 @@ scoreboard players add q cache_memory_score_add 0
 scoreboard players add q cache_memory_score_add 0
 scoreboard players add q cache_memory_score_add 0
 scoreboard players add q cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
+scoreboard players add r cache_memory_score_add 0
