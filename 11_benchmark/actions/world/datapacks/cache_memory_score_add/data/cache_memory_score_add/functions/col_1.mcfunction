@@ -1,4 +1,4 @@
-#> cache_memory_score_add:eq_3
+#> cache_memory_score_add:col_1
 # @benchmark
 
 scoreboard players add p cache_memory_score_add 0
