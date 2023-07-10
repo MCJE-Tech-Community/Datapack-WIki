@@ -5,12 +5,43 @@ on:
     inputs:
       version:
         type: string
-        description: "ベンチマークを実行するMinecraftのバージョン"
+        description: "Minecraft version"
         required: false
         default: "release"
-      benchmarks:
+      warmup_iterations:
+        type: number
+        description: "Number of warmup iterations"
+        required: false
+        default: 5
+      measurement_iterations:
+        type: number
+        description: "Number of measurement iterations"
+        required: false
+        default: 5
+      time:
+        type: number
+        description: "Duration of iterations in seconds"
+        required: false
+        default: 10
+      forks:
+        type: number
+        description: "Number of forks"
+        required: false
+        default: 5
+      time_unit:
+        type: choice
+        description: "Output time unit"
+        required: false
+        default: us
+        options: [ ns, us, ms, s, m ]
+      mc_args:
         type: string
-        description: "ベンチマークを実行するデータパックの名前のリスト(,区切り)"
+        description: "Minecraft arguments to use with forks"
+        required: false
+        default: "nogui"
+      function_benchmarks:
+        type: string
+        description: "Data pack names for function benchmark"
         required: true
 
 jobs:
@@ -33,7 +64,7 @@ jobs:
         run: |
           cd 11_benchmark/actions
           curl -L -o mch.jar https://github.com/mcenv/mch/releases/download/v0.14.0/mch.jar
-          java -jar mch.jar --mc=$MINECRAFT --function_benchmarks=${{ inputs.benchmarks }}
+          java -jar mch.jar --mc=$MINECRAFT --warmup_iterations=${{ inputs.warmup_iterations }} --measurement_iterations=${{ inputs.measurement_iterations }} --time=${{ inputs.time }} --forks=${{ inputs.forks }} --time_unit=${{ inputs.time_unit }} --mc_args=${{ inputs.mc_args }} --function_benchmarks=${{ inputs.function_benchmarks }}
           cat mch-results.md >> $GITHUB_STEP_SUMMARY
       - name: ベンチマーク結果のアップロード
         uses: actions/upload-artifact@v3
