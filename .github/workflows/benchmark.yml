@@ -1,5 +1,7 @@
 name: ベンチマーク
 
+run-name: ${{ inputs.function_benchmarks }}
+
 on:
   workflow_dispatch:
     inputs:
