@@ -70,7 +70,7 @@ jobs:
         run: |
           cd 11_benchmark/actions
           curl -L -o mch.jar https://github.com/mcenv/mch/releases/download/v0.14.0/mch.jar
-          java -jar mch.jar --mc=$MINECRAFT --warmup_iterations=${{ inputs.warmup_iterations }} --measurement_iterations=${{ inputs.measurement_iterations }} --time=${{ inputs.time }} --forks=${{ inputs.forks }} --time_unit=${{ inputs.time_unit }} --jvm_args=${{ inputs.jvm_args }} --mc_args=${{ inputs.mc_args }} --parsing_benchmarks=${{ inputs.parsing_benchmarks }} --execute_benchmarks=${{ inputs.execute_benchmarks }} --function_benchmarks=${{ inputs.function_benchmarks }}
+          java -jar mch.jar --mc=$MINECRAFT --warmup_iterations=${{ inputs.warmup_iterations }} --measurement_iterations=${{ inputs.measurement_iterations }} --time=${{ inputs.time }} --forks=${{ inputs.forks }} --time_unit=${{ inputs.time_unit }} --jvm_args=${{ inputs.jvm_args }} --mc_args=${{ inputs.mc_args }} --function_benchmarks=${{ inputs.function_benchmarks }}
           cat mch-results.md >> $GITHUB_STEP_SUMMARY
       - name: ベンチマーク結果のアップロード
         uses: actions/upload-artifact@v3
