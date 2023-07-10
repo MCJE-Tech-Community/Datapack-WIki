@@ -1,4 +1,4 @@
 #> scoreboard_arithmetic:decr
 # @benchmark
 
-scoreboard players remove a scoreboard_arithmetic 0
+scoreboard players remove p scoreboard_arithmetic 0
