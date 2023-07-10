@@ -44,16 +44,6 @@ on:
         description: "Minecraft arguments to use with forks"
         required: false
         default: "nogui"
-      parsing_benchmarks:
-        type: string
-        description: "Commands for parsing benchmark"
-        required: false
-        default: ","
-      execute_benchmarks:
-        type: string
-        description: "Commands for execute benchmark"
-        required: false
-        default: ","
       function_benchmarks:
         type: string
         description: "Data pack names for function benchmark"
