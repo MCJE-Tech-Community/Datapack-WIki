@@ -1,1 +1,1 @@
-$scoreboard players get $(a) macro_cache
+$_ $(a)
