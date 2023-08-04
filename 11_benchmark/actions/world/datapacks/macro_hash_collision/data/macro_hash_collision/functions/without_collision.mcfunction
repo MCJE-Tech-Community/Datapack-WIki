@@ -2,18 +2,18 @@
 # @benchmark
 
 # 23
-function macro_hash_collision:macro_with_collision {a: "aaaaaa"}
+function macro_hash_collision:macro {a: "aaaaaa"}
 # 27
-function macro_hash_collision:macro_with_collision {a: "bbbbbb"}
+function macro_hash_collision:macro {a: "bbbbbb"}
 # 15
-function macro_hash_collision:macro_with_collision {a: "cccccc"}
+function macro_hash_collision:macro {a: "cccccc"}
 # 20
-function macro_hash_collision:macro_with_collision {a: "dddddd"}
+function macro_hash_collision:macro {a: "dddddd"}
 # 24
-function macro_hash_collision:macro_with_collision {a: "eeeeee"}
+function macro_hash_collision:macro {a: "eeeeee"}
 # 12
-function macro_hash_collision:macro_with_collision {a: "ffffff"}
+function macro_hash_collision:macro {a: "ffffff"}
 # 16
-function macro_hash_collision:macro_with_collision {a: "gggggg"}
+function macro_hash_collision:macro {a: "gggggg"}
 # 4
-function macro_hash_collision:macro_with_collision {a: "hhhhhh"}
+function macro_hash_collision:macro {a: "hhhhhh"}
