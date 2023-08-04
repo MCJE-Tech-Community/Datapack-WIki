@@ -41,10 +41,16 @@ on:
         description: "Minecraft arguments to use with forks"
         required: false
         default: "nogui"
+      parsing_benchmarks:
+        type: string
+        description: "Commands for parsing benchmark"
+        required: false
+        default: ""
       function_benchmarks:
         type: string
         description: "Data pack names for function benchmark"
-        required: true
+        required: false
+        default: ""
 
 jobs:
   benchmark:
@@ -67,7 +73,6 @@ jobs:
           cd 11_benchmark/actions
           curl -L -o mch.jar https://github.com/mcenv/mch/releases/download/v0.15.0/mch.jar
           java -jar mch.jar --mc=$MINECRAFT --warmup_iterations=${{ inputs.warmup_iterations }} --measurement_iterations=${{ inputs.measurement_iterations }} --time=${{ inputs.time }} --forks=${{ inputs.forks }} --time_unit=${{ inputs.time_unit }} --mc_args=${{ inputs.mc_args }} --function_benchmarks=${{ inputs.function_benchmarks }}
-          cat mch-results.md >> $GITHUB_STEP_SUMMARY
       - name: ベンチマーク結果のアップロード
         uses: actions/upload-artifact@v3
         with:
