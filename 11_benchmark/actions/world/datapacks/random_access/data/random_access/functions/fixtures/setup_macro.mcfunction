@@ -1,1 +1,1 @@
-$data modify storage _ b.$(c) set value 0
+$data modify storage _ b.$(d) set value 0
