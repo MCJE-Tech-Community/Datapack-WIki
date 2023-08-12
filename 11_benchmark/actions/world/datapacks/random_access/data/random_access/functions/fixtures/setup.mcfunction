@@ -21,4 +21,22 @@ data modify storage _ a append from storage _ a[]
 
 scoreboard players set p _ -1
 function random_access:fixtures/setup_loop
-data remove storage _ c
+data remove storage _ d
+
+data modify storage _ c set value [0, 0]
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+data modify storage _ c[] set from storage _ c
+scoreboard players set q _ 65536

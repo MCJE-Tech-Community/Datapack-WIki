@@ -1,1 +1,1 @@
-$data get storage _ b.$(c)
+$data get storage _ b.$(d)
