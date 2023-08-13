@@ -1,5 +1,5 @@
 {
   "values": [
-    "string_decomposition:fixtures/setup"
+    "main:fixtures/setup"
   ]
 }
