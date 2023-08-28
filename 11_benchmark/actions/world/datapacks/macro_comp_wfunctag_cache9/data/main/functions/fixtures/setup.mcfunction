@@ -1,0 +1,1 @@
+data modify storage _: name set value ""
