@@ -1,0 +1,9 @@
+execute if data storage _: {name:"main:1"} on vehicle run function main:1
+execute if data storage _: {name:"main:2"} on vehicle run function main:2
+execute if data storage _: {name:"main:3"} on vehicle run function main:3
+execute if data storage _: {name:"main:4"} on vehicle run function main:4
+execute if data storage _: {name:"main:5"} on vehicle run function main:5
+execute if data storage _: {name:"main:6"} on vehicle run function main:6
+execute if data storage _: {name:"main:7"} on vehicle run function main:7
+execute if data storage _: {name:"main:8"} on vehicle run function main:8
+execute if data storage _: {name:"main:9"} on vehicle run function main:9
