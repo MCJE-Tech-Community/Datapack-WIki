@@ -1,1 +1,1 @@
-$execute on vhiecle run function $(name)
+$execute on vehicle run function $(name)
