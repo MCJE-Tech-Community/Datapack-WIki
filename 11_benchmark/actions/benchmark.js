@@ -21,10 +21,11 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
     '| :---- | :-------- | :--- | ----: | ----: | ----: | :--- |',
   ];
 
-  for (const result of results.results) {
-    const [namespace, path] = result.benchmark.split(':');
-    const link = `https://github.com/MCJE-Tech-Shares/Datapack-WIki/blob/${context.sha}/11_benchmark/actions/world/datapacks/${result.group}/data/${namespace}/functions/${path}.mcfunction`;
-    lines.push(`| ${result.group} | [\`${result.benchmark}\`](${link}) | ${result.mode} | ${result.count} | ${result.score} | ± ${result.error} | ${result.unit} |`);
+  for (let i = 0; i < results.results.length; i++) {
+    const { group, benchmark, mode, count, score, error, unit } = results.results[i];
+    const [namespace, path] = benchmark.split(':');
+    const link = `https://github.com/MCJE-Tech-Shares/Datapack-WIki/blob/${context.sha}/11_benchmark/actions/world/datapacks/${group}/data/${namespace}/functions/${path}.mcfunction`;
+    lines.push(`| ${group} | ${i === 0 ? `\`${benchmark}\`` : `[\`${benchmark}\`](${link})`} | ${mode} | ${count} | ${score} | ± ${error} | ${unit} |`);
   }
 
   const fs = require('fs');
