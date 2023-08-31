@@ -38,7 +38,7 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
     /** @type {string} */
     let benchmarkTag;
     if (i === 0) {
-      benchmarkTag = `<code>${benchmark}</code>`;
+      benchmarkTag = `<details><summary><code>${benchmark}</code></summary><pre lang="mcfunction"><code></code></pre></details>`;
     } else {
       const [namespace, path] = benchmark.split(':');
       const file = `world/datapacks/${group}/data/${namespace}/functions/${path}.mcfunction`;
