@@ -76,7 +76,8 @@ jobs:
           path: |
             11_benchmark/actions/mch-results.json
             11_benchmark/actions/mch-results.md
-      - uses: actions/github-script@v6
+      - name: サマリーの作成
+        uses: actions/github-script@v6
         with:
           script: |
             require('./11_benchmark/actions/benchmark.js')({ context });
