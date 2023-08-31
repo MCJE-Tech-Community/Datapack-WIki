@@ -9,7 +9,7 @@ on:
         type: string
         description: "Minecraft version"
         required: false
-        default: "release"
+        default: "snapshot"
       warmup_iterations:
         type: number
         description: "Number of warmup iterations"
