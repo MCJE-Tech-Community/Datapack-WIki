@@ -86,7 +86,7 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
   );
   for (const { benchmark, score, error } of results.results) {
     lines.push(
-      `section ${benchmark}`,
+      `section ${benchmark.replace(':', '#58;')}`,
       `± ${error.toFixed(6)} : 0, ${Math.round(score)}`,
     );
   }
