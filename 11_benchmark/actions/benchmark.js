@@ -1,4 +1,6 @@
 module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
+  const fs = require('fs');
+
   /**
    * @type {{
    *   results: {
@@ -33,14 +35,23 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
 
   for (let i = 0; i < results.results.length; i++) {
     const { group, benchmark, mode, count, score, error, unit } = results.results[i];
-    const [namespace, path] = benchmark.split(':');
-    const link = `https://github.com/MCJE-Tech-Shares/Datapack-WIki/blob/${context.sha}/11_benchmark/actions/world/datapacks/${group}/data/${namespace}/functions/${path}.mcfunction`;
-    const href = `href="${link}"`;
+    /** @type {string} */
+    let benchmarkTag;
+    if (i === 0) {
+      benchmarkTag = `<code>${benchmark}</code>`;
+    } else {
+      const [namespace, path] = benchmark.split(':');
+      const file = `world/datapacks/${group}/data/${namespace}/functions/${path}.mcfunction`;
+      const link = `https://github.com/MCJE-Tech-Shares/Datapack-WIki/blob/${context.sha}/11_benchmark/actions/${file}`;
+      const href = `href="${link}"`;
+      const code = fs.readFileSync(file);
+      benchmarkTag = `<details><summary><a ${href}><code>${benchmark}</code></a></summary><pre lang="mcfunction"><code>${code}</code></pre></details>`;
+    }
     lines.push(
       '<tbody>',
       '<tr>',
       `<td align="left">${group}</td>`,
-      `<td align="left"><a ${href}><code>${benchmark}</code></a></td>`,
+      `<td align="left">${benchmarkTag}</td>`,
       `<td align="center">${mode}</td>`,
       `<td align="right">${count}</td>`,
       `<td align="right">${score}</td>`,
@@ -53,6 +64,5 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
 
   lines.push('</table>');
 
-  const fs = require('fs');
   fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n'));
 };
