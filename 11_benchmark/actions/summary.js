@@ -78,6 +78,7 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
   lines.push('</table>');
 
   lines.push(
+    '',
     '```mermaid',
     'gantt',
     'dateFormat X',
@@ -89,7 +90,10 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
       `± ${error.toFixed(6)} : 0, ${Math.round(score)}`,
     );
   }
-  lines.push('```');
+  lines.push(
+    '```',
+    '',
+  );
 
   lines.push(
     '<h3>Metadata</h3>',
