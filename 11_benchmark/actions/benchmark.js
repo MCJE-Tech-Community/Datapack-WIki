@@ -43,7 +43,7 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
       const [namespace, path] = benchmark.split(':');
       const file = `world/datapacks/${group}/data/${namespace}/functions/${path}.mcfunction`;
       const href = `https://github.com/MCJE-Tech-Shares/Datapack-WIki/blob/${context.sha}/11_benchmark/actions/${file}`;
-      const code = fs.readFileSync(file);
+      const code = fs.readFileSync(`./${file}`);
       benchmarkTag = `<details><summary><a href="${href}"><code>${benchmark}</code></a></summary><pre lang="mcfunction"><code>${code}</code></pre></details>`;
     }
     lines.push(
