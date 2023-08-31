@@ -3,6 +3,20 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
 
   /**
    * @type {{
+   *   mch_version: string,
+   *   forks: number,
+   *   jvm: string,
+   *   jvm_args: string[],
+   *   jdk_version: string,
+   *   vm_name: string,
+   *   vm_version: string,
+   *   mc: string,
+   *   mc_args: string[],
+   *   mc_version: string,
+   *   warmup_iteratino: number,
+   *   warmup_time: string,
+   *   measurement_iteration: number,
+   *   measurement_time: string,
    *   results: {
    *     group: string,
    *     benchmark: string,
@@ -61,7 +75,33 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
     );
   }
 
-  lines.push('</table>');
+  lines.push(
+    '</table>',
+
+    '<h3>Metadata</h3>',
+    '<table>',
+    '<thead>',
+    '<tr>',
+    '<th align="left">Key</th>',
+    '<th align="left">Value</th>',
+    '</tr>',
+    '</thead>',
+    `<tbody><tr><td align="left">mch_version</td><td align="left">${results.mch_version}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">forks</td><td align="left">${results.forks}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">jvm</td><td align="left">${results.jvm}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">jvm_args</td><td align="left">${results.jvm_args.join(' ')}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">jdk_version</td><td align="left">${results.jdk_version}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">vm_name</td><td align="left">${results.vm_name}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">vm_version</td><td align="left">${results.vm_version}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">mc</td><td align="left">${results.mc}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">mc_args</td><td align="left">${results.mc_args.join(' ')}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">mc_version</td><td align="left">${results.mc_version}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">warmup_iteratino</td><td align="left">${results.warmup_iteratino}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">warmup_time</td><td align="left">${results.warmup_time}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">measurement_iteration</td><td align="left">${results.measurement_iteration}</td></tr></tbody>`,
+    `<tbody><tr><td align="left">measurement_time</td><td align="left">${results.measurement_time}</td></tr></tbody>`,
+    '</table>',
+  );
 
   fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n'));
 };
