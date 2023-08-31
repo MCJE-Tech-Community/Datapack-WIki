@@ -53,16 +53,16 @@ jobs:
     steps:
       - name: チェックアウト
         uses: actions/checkout@v3
-      - name: Javaのセットアップ
-        uses: actions/setup-java@v3
-        with:
-          distribution: "temurin"
-          java-version: "17"
       - name: Minecraftのセットアップ
         id: minecraft
         uses: mcenv/setup-minecraft@v3
         with:
           version: ${{ inputs.version }}
+      - name: Javaのセットアップ
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: ${{ fromJson(steps.minecraft.outputs.package).javaVersion.majorVersion }}
       - name: ベンチマーク
         run: |
           cd 11_benchmark/actions
