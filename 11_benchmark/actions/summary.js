@@ -13,9 +13,9 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
    *   mc: string,
    *   mc_args: string[],
    *   mc_version: string,
-   *   warmup_iteratino: number,
+   *   warmup_iterations: number,
    *   warmup_time: string,
-   *   measurement_iteration: number,
+   *   measurement_iterations: number,
    *   measurement_time: string,
    *   results: {
    *     group: string,
@@ -96,9 +96,9 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
     `<tbody><tr><td align="left"><samp>mc</samp></td><td align="left">${results.mc}</td></tr></tbody>`,
     `<tbody><tr><td align="left"><samp>mc_args</samp></td><td align="left">${results.mc_args.join(' ')}</td></tr></tbody>`,
     `<tbody><tr><td align="left"><samp>mc_version</samp></td><td align="left">${results.mc_version}</td></tr></tbody>`,
-    `<tbody><tr><td align="left"><samp>warmup_iteratino</samp></td><td align="left">${results.warmup_iteratino}</td></tr></tbody>`,
+    `<tbody><tr><td align="left"><samp>warmup_iterations</samp></td><td align="left">${results.warmup_iterations}</td></tr></tbody>`,
     `<tbody><tr><td align="left"><samp>warmup_time</samp></td><td align="left">${results.warmup_time}</td></tr></tbody>`,
-    `<tbody><tr><td align="left"><samp>measurement_iteration</samp></td><td align="left">${results.measurement_iteration}</td></tr></tbody>`,
+    `<tbody><tr><td align="left"><samp>measurement_iterations</samp></td><td align="left">${results.measurement_iterations}</td></tr></tbody>`,
     `<tbody><tr><td align="left"><samp>measurement_time</samp></td><td align="left">${results.measurement_time}</td></tr></tbody>`,
     '</table>',
   );
