@@ -23,7 +23,7 @@ module.exports = (/** @type {{ context: { sha: string } }} */ { context }) => {
 
   for (const result of results.results) {
     const [namespace, path] = result.benchmark.split(':');
-    const link = `https://github.com/MCJE-Tech-Shares/Datapack-WIki/blob/${context.sha}/11_benchmark/actions/world/datapacks/${namespace}/data/${path}.mcfunction`;
+    const link = `https://github.com/MCJE-Tech-Shares/Datapack-WIki/blob/${context.sha}/11_benchmark/actions/world/datapacks/${result.group}/data/${namespace}/functions/${path}.mcfunction`;
     lines.push(`| ${result.group} | [\`${result.benchmark}\`](${link}) | ${result.mode} | ${result.count} | ${result.score} | ± ${result.error} | ${result.unit} |`);
   }
 
