@@ -80,4 +80,4 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            require('./11_benchmark/actions/benchmark.js')({ context });
+            require('./11_benchmark/actions/summary.js')({ context });
