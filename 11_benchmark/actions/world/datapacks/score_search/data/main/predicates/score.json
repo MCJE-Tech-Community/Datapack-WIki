@@ -1,0 +1,24 @@
+{
+    "condition": "entity_scores",
+    "entity": "this",
+    "scores": {
+        "_" : {
+            "max": {
+                "type": "score",
+                "target": {
+                    "type": "fixed",
+                    "name": "_"
+                },
+                "score": "_"
+            },
+            "min": {
+                "type": "score",
+                "target": {
+                    "type": "fixed",
+                    "name": "_"
+                },
+                "score": "_"
+            }
+        }
+    }
+}
