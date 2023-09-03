@@ -9,7 +9,7 @@ on:
         type: string
         description: "Minecraft version"
         required: false
-        default: "release"
+        default: "snapshot"
       warmup_iterations:
         type: number
         description: "Number of warmup iterations"
@@ -53,22 +53,21 @@ jobs:
     steps:
       - name: チェックアウト
         uses: actions/checkout@v3
-      - name: Javaのセットアップ
-        uses: actions/setup-java@v3
-        with:
-          distribution: "temurin"
-          java-version: "17"
       - name: Minecraftのセットアップ
         id: minecraft
         uses: mcenv/setup-minecraft@v3
         with:
           version: ${{ inputs.version }}
+      - name: Javaのセットアップ
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: ${{ fromJson(steps.minecraft.outputs.package).javaVersion.majorVersion }}
       - name: ベンチマーク
         run: |
           cd 11_benchmark/actions
           curl -L -o mch.jar https://github.com/mcenv/mch/releases/download/v0.15.0/mch.jar
           java -jar mch.jar --mc=$MINECRAFT --warmup_iterations=${{ inputs.warmup_iterations }} --measurement_iterations=${{ inputs.measurement_iterations }} --time=${{ inputs.time }} --forks=${{ inputs.forks }} --time_unit=${{ inputs.time_unit }} --mc_args=${{ inputs.mc_args }} --function_benchmarks=${{ inputs.function_benchmarks }}
-          cat mch-results.md >> $GITHUB_STEP_SUMMARY
       - name: ベンチマーク結果のアップロード
         uses: actions/upload-artifact@v3
         with:
@@ -77,3 +76,8 @@ jobs:
           path: |
             11_benchmark/actions/mch-results.json
             11_benchmark/actions/mch-results.md
+      - name: サマリーの作成
+        uses: actions/github-script@v6
+        with:
+          script: |
+            require('./11_benchmark/actions/summary.js')({ context });
