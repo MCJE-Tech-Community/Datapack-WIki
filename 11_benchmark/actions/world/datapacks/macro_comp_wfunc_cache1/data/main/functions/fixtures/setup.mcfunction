@@ -1,1 +1,0 @@
-data modify storage _: a set value {a:1}
