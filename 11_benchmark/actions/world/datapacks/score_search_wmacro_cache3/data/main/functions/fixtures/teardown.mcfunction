@@ -1,1 +1,0 @@
-scoreboard objectives remove _
