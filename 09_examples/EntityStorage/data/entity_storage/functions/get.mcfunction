@@ -9,8 +9,11 @@
     # 取得
     execute store result storage entity_storage:core macro.a int 1 run scoreboard players get estH.now estS.id
     execute store result storage entity_storage:core macro.b int 1 run scoreboard players operation estH.now estS.id = @s estS.id
+    data modify storage entity_storage:core macro.b_path set from storage entity_storage: path
     # マクロ実行
     function entity_storage:zzz/main/get_macro with storage entity_storage:core macro
+    # データ名を保存
+    data modify storage entity_storage:core macro.a_path set from storage entity_storage: path
 
 ## idが未付与の場合は付与
     execute unless entity @s[tag=estT.] run function entity_storage:zzz/main/id_add
