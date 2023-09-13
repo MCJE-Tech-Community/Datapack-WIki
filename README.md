@@ -295,6 +295,7 @@ data modify storage entity_storage: data.B set value 1b
 data modify storage entity_storage: gc_duration set value 200
 ```  
 
+(2023/09/14):ミス/誤字を修正  
 (2023/09/13):追加  
 
 [▲戻る](#配布物)
