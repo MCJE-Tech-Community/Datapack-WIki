@@ -17,7 +17,7 @@
     data modify storage entity_storage: data set value {}
     tag @s add estT.temp
     # 召喚,データを取得
-    summon text_display ~ ~ ~ {UUID:[I;1340080827,3,1,1],text:'{"selector":"@e[tag=estT.temp,limit=1,distance=..1]"}'}
+    summon text_display ~ ~ ~ {UUID:[I;1340080827,3,1,1],text:'{"selector":"@e[tag=estT.temp,limit=1]"}'}
     function entity_storage:zzz/main/get_name with entity 4fe002bb-0-3-0-100000001
     # 名前とUUIDを保存
     data modify storage entity_storage: data.score_name set from storage entity_storage:core text.insertion
