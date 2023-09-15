@@ -261,26 +261,28 @@ block_displayで作成した、木でできた窓枠とその周辺。
 1.20.2で追加されたマクロを利用して作成した、エンティティ毎にストレージで好きなデータを保存できる個別ストレージ。リストに対して`[$(index)]`のようにアクセスしてデータをコピーしてくる方法で、データの量によってはコピーのコストが大きくなるため注意。
 
 ### 使い方 
-**初期設定:**  
+**初期設定 :**  
 [09_examples/EntityStorage](https://github.com/MCJE-Tech-Community/Datapack-WIki/tree/main/09_examples/EntityStorage)にある`EntityStorage`を`datapacks`直下に入れるか、`EntityStorage/data/entity_storage`フォルダを好きなデータパックの`data/`直下に入れ、`entity_storage:zzz/init`を実行する。  
 
-**登録**
-`entity_storage:regist`を実行すると、実行者にidとしてスコアボード`estS.id`にidが与えられ、個別ストレージの方にもデータの格納先が準備される。
+**登録 :**  
+`entity_storage:regist`を実行すると、実行者にidとしてスコアボード`estS.id`にidが与えられ、個別ストレージの方にもデータの格納先が準備される。  
+`entity_storage:regist {id:<id>}`を実行すると該当idのデータを削除する。
 
-**データのコピー、変更**:  
-コピーとデータ変更を行うファンクションは以下の二つで
-`entity_storage:copy`:  
-->
+**データのコピー、変更 :**  
+個別データは`entity_storage: data[<id>]`に格納され、以下のマクロに適切な変数を渡せばコピーやマージができる。  
+
+▼`entity_storage:copy`  
 ```mcfunction
 $data modify $(type) $(target) $(path) set from entity_storage: data[($id)].$(from)
 ```  
-`entity_storage:merge`  
-->
+▼`entity_storage:merge`  
 ```mcfunction
 $data modify storage entity_storage: data[($id)].$(to) merge value ($(data))
 ```  
+個別ストレージからデータを取り出したり変更したりするときに利用できる。  
+初期値として、該当エンティティの文字列uuid(`str_uuid`)と名前(`score_name`)が保存されている。(後者はガベージコレクタで利用する)  
 
-**ガベージコレクタ** :  
+**ガベージコレクタ :**  
 `schedule`コマンドにより一定時間の間隔でエンティティの存在をスコアを用いた方法で1体ずつ確認し、削除されていた場合はデータなどを消すという機能がある。`entity_storage: gc_duration`で走査tickの間隔を設定できる(デフォルトは2000tick,100秒)。1回につき1体分しか確認しないので割とゆっくり行われる。
 
 ▼ファンクションの実行例
@@ -298,8 +300,8 @@ function entity_storage:merge {id:"0",to:"fuga",data:{a:1b,str:"hoge"}}
 data modify storage entity_storage: gc_duration set value 200
 ```  
  
-(2023/09/15):シンプルな形に変更 
-(2023/09/14):ミス/誤字を修正 
+(2023/09/15):シンプルな形に変更  
+(2023/09/14):ミス/誤字を修正  
 (2023/09/13):追加  
 
 [▲戻る](#配布物)
