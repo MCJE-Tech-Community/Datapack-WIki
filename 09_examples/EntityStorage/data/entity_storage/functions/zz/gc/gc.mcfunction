@@ -1,10 +1,10 @@
-#> entity_storage:zzz/gc/gc
+#> entity_storage:zz/gc/gc
 # スコアがない場合はガベージコレクトを実行
 # @within
-#   function entity_storage:zzz/gc/schedule
+#   function entity_storage:zz/gc/schedule
 
 ## スコアがないことを確認したらガベージコレクトを実行
-    $execute if score $(score_name) estS.id matches 0.. run retrun 0
+    $execute if score $(score_name) estS.id matches 0.. run return 0
     
 ## ガベージをコレクト
     # idを保存

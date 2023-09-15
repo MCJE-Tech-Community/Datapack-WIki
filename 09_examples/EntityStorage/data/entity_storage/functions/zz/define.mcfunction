@@ -1,7 +1,7 @@
-#> entity_storage:zzz/define
+#> entity_storage:zz/define
 # スコアボード等の定義のみ
 # @within
-#   function entity_storage:zzz/load
+#   function entity_storage:zz/init
 
 ## Scoreboard objective
     #> Local
@@ -13,8 +13,9 @@
     # @within entity_storage:**
         #define score_holder estH. 汎用
         #define score_holder estH.new 最新値
-        #define score_holder estH.now 現在値
             execute unless score estH.new estS.id matches 0.. run scoreboard players set estH.new estS.id -1
+        #define score_holder estH.call.now call 現在値
+        #define score_holder estH.copy.now copy 現在値
         #define score_holder estH.gc ガベージコレクタ用
 
 ## Tags
