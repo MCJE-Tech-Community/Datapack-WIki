@@ -11,6 +11,7 @@
 ## Score Holder
     #> Local
     # @within entity_storage:**
+        #define score_holder estH. 
         #define score_holder estH.new 最新値
             execute unless score estH.new estS.id matches 0.. run scoreboard players set estH.new estS.id -1
         #define score_holder estH.gc ガベージコレクタ用

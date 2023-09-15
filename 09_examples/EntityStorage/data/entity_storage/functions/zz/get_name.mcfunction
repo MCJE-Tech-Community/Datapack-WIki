@@ -10,4 +10,4 @@
     data modify storage entity_storage:core _.score_name set from storage entity_storage:core text.insertion
     data modify storage entity_storage:core _.str_uuid set from storage entity_storage:core text.hoverEvent.contents.id
     # データに反映
-    $data modify storage entity_storage: data[$(id)] set from storage entity_storage:core _
+    $data modify storage entity_storage: data[$(id)] merge from storage entity_storage:core _
