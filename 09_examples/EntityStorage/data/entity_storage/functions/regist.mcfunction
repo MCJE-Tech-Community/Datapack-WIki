@@ -20,7 +20,7 @@
     kill 4fe002bb-0-3-0-100000001
     tag @s remove estT.temp
     # データを取得
-    function entity_storage:zz/get_name with storage entity_storage: macro
+    function entity_storage:zz/get_name with storage entity_storage:core macro
 
 ## フラグを付与
     tag @s add estT.
