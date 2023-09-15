@@ -264,38 +264,42 @@ block_displayで作成した、木でできた窓枠とその周辺。
 **初期設定:**  
 [09_examples/EntityStorage](https://github.com/MCJE-Tech-Community/Datapack-WIki/tree/main/09_examples/EntityStorage)にある`EntityStorage`を`datapacks`直下に入れるか、`EntityStorage/data/entity_storage`フォルダを好きなデータパックの`data/`直下に入れ、`entity_storage:zzz/init`を実行する。  
 
-**データの呼び出し**:  
-`entity_storage:get`を実行すれば、実行者の個別ストレージが`entity_storage: data`にセットされるので、好きに取得や変更ができる。  
-実行前に`entity_storage: path`にパスを記入すると、`entity_storage: data.path`の部分のみが`entity_storage: data`にコピーされる。`path`は自動でリセットされないので、必要ない場合はデフォルト値`{}`に戻すことを推奨。  
-デフォルトで `str_uuid`:実行者のuuid文字列 と `score_name`:スコアボードに表示される名前 がセットされる。(削除するとガベージコレクタに影響が出るため注意)  
+**登録**
+`entity_storage:regist`を実行すると、実行者にidとしてスコアボード`estS.id`にidが与えられ、個別ストレージの方にもデータの格納先が準備される。
+
+**データのコピー、変更**:  
+コピーとデータ変更を行うファンクションは以下の二つで
+`entity_storage:copy`:  
+->
+```mcfunction
+$data modify $(type) $(target) $(path) set from entity_storage: data[($id)].$(from)
+```  
+`entity_storage:merge`  
+->
+```mcfunction
+$data modify storage entity_storage: data[($id)].$(to) merge value ($(data))
+```  
 
 **ガベージコレクタ** :  
 `schedule`コマンドにより一定時間の間隔でエンティティの存在をスコアを用いた方法で1体ずつ確認し、削除されていた場合はデータなどを消すという機能がある。`entity_storage: gc_duration`で走査tickの間隔を設定できる(デフォルトは2000tick,100秒)。1回につき1体分しか確認しないので割とゆっくり行われる。
 
 ▼ファンクションの実行例
 ```mcfunction
-# 個別データの呼び出し
-function entity_storage:get
+# 個別データ/idの登録
+execute as <entity> run function entity_storage:regist
 
-# データの取得
-function entity_storage:get
-data get storage entity_storage: data.C.A
+# データのコピー
+function entity_storage:copy {id:"0",type:"storage",target:"namespace:",path:"hoge",from:"fuga"}
 
-# path付きデータの取得
-data modify storage entity_storage: path set value "C"
-function entity_storage:get
-data get storage entity_storage: data.A
-data modify storage entity_storage: path set value "{}"
-
-# データの変更
-function entity_storage:get
-data modify storage entity_storage: data.B set value 1b
+# データのマージ
+function entity_storage:merge {id:"0",to:"fuga",data:{a:1b,str:"hoge"}}
 
 # ガベージコレクタの設定変更
 data modify storage entity_storage: gc_duration set value 200
 ```  
-
-(2023/09/14):ミス/誤字を修正  
+ 
+(2023/09/15):シンプルな形に変更 
+(2023/09/14):ミス/誤字を修正 
 (2023/09/13):追加  
 
 [▲戻る](#配布物)
