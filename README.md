@@ -300,6 +300,7 @@ function entity_storage:merge {id:"0",to:"fuga",data:{a:1b,str:"hoge"}}
 data modify storage entity_storage: gc_duration set value 200
 ```  
  
+(2023/09/16):誤字修正  
 (2023/09/15):シンプルな形に変更  
 (2023/09/14):ミス/誤字を修正  
 (2023/09/13):追加  
