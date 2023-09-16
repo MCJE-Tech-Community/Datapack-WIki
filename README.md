@@ -273,7 +273,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ▼`entity_storage:copy`  
 ```mcfunction
-$data modify $(type) $(target) $(path) set from entity_storage: data[$(id)].$(from)
+$data modify $(type) $(target) $(path) set from storage entity_storage: data[$(id)].$(from)
 ```  
 ▼`entity_storage:merge`  
 ```mcfunction
