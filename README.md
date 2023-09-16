@@ -273,11 +273,11 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 ▼`entity_storage:copy`  
 ```mcfunction
-$data modify $(type) $(target) $(path) set from entity_storage: data[($id)].$(from)
+$data modify $(type) $(target) $(path) set from entity_storage: data[$(id)].$(from)
 ```  
 ▼`entity_storage:merge`  
 ```mcfunction
-$data modify storage entity_storage: data[($id)].$(to) merge value ($(data))
+$data modify storage entity_storage: data[$(id)].$(to) merge value ($(data))
 ```  
 個別ストレージからデータを取り出したり変更したりするときに利用できる。  
 初期値として、該当エンティティの文字列uuid(`str_uuid`)と名前(`score_name`)が保存されている。(後者はガベージコレクタで利用する)  
