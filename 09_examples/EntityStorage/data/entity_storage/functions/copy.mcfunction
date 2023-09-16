@@ -9,4 +9,4 @@
 #   from -> コピー元のパス
 
 ## コピー
-    $data modify $(type) $(target) $(path) set from entity_storage: data[($id)].$(from)
+    $data modify $(type) $(target) $(path) set from entity_storage: data[$(id)].$(from)

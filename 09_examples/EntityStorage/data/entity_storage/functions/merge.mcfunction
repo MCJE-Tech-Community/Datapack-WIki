@@ -7,4 +7,4 @@
 #   data -> マージするデータ コンパウンド限定
 
 ## コピー
-    $data modify storage entity_storage: data[($id)].$(to) merge value ($(data))
+    $data modify storage entity_storage: data[$(id)].$(to) merge value $(data)
