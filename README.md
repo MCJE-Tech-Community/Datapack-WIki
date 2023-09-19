@@ -266,7 +266,7 @@ block_displayで作成した、木でできた窓枠とその周辺。
 
 **登録 :**  
 `entity_storage:regist`を実行すると、実行者にidとしてスコアボード`estS.id`にidが与えられ、個別ストレージの方にもデータの格納先が準備される。  
-`entity_storage:regist {id:<id>}`を実行すると該当idのデータを削除する。
+`entity_storage:unregist {id:<id>}`を実行すると該当idのデータを削除する。
 
 **データのコピー、変更 :**  
 個別データは`entity_storage: data[<id>]`に格納され、以下のマクロに適切な変数を渡せばコピーやマージができる。  
